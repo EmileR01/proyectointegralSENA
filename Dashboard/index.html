@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Porcina</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <img src="icon/Logo.jpg" alt="logo-sena">
+        <h1>Sistema Integral de Gestion Porcina</h1>
+        <ul>
+            <li><a href="">Resumen</a></li>
+            <li><a href="">Salud</a></li>
+            <li><a href="">Alimentacion</a></li>
+            <li><a href="">Reproduccion</a></li>
+            <li><a href="">Inventario</a></li>
+            <li><a href="">Ventas</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h2>Salud Porcina</h2>
+        <ul>
+            <li><a href="">Vacunaciones</a></li>
+            <li><a href="">Diagnosticos</a></li>
+            <li><a href="">Tratamientos</a></li>
+            <li><a href="">Historial Veterinario</a></li>
+        </ul>
+    </header>
+    <section>
+        <article>
+            <h3>Registro de Vacunacion</h3>
+            <form action="get">
+                <div>
+                    <label for="fecha">Fecha de Vacunacion</label>
+                    <input type="date" id="fecha">
+                    <label for="dosis">Dosis</label>
+                    <input type="date" id="dosis">
+                </div>
+
+                <label for="lote">Lote</label>
+                <input type="number" id="lote">
+
+                <label for="animal">Lote</label>
+                <input type="number" id="animal">
+
+                <label for="vacuna">Lote</label>
+                <input type="number" id="vacuna">
+
+                <label for="observaciones" >Lote</label>
+                <input type="number" id="observaciones">
+            </form>
+        </article>
+        <article>
+            <h3>Alertad de Vacunacion</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Animal</th>
+                        <th>Vacuna</th>
+                        <th>Fecha Próx.</th>
+                        <th>Estado</th>
+                    </tr>
+                    <tr>
+                        <td>Cerdito 1</td>
+                        <td>Fiebre Porcina</td>
+                        <td>2025-10-10</td>
+                        <td>Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>Cerdito 1</td>
+                        <td>Fiebre Porcina</td>
+                        <td>2025-10-10</td>
+                        <td>Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>Cerdito 1</td>
+                        <td>Fiebre Porcina</td>
+                        <td>2025-10-10</td>
+                        <td>Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>Cerdito 1</td>
+                        <td>Fiebre Porcina</td>
+                        <td>2025-10-05</td>
+                        <td>Completado</td>
+                    </tr>
+                </thead>
+            </table>
+        </article>
+    </section>
+    <button><a href="">Guardar</a></button>
+</body>
+</html>

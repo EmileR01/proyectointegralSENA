@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <main>
+        <header>
+            <img class="img1" src="img/logo.jpg" alt="">
+            <p class="p1">Sistema Integral de Gestion Porcina</p>
+            <button class="p2">Resumen</button>
+            <button class="p2">Salud</button>
+            <button class="p2">Alimentacion</button>
+            <button class="p2">Reproduccion</button>
+            <button class="p2">Inventario</button>
+            <button class="p2">Ventas</button>
+            <button class="p2">Reportes</button>
+        </header>
+        <footer>
+            <section class="titulo">Etapas de Crecimiento</section>
+            <p class="sub1">Rejistro de edades y peso por ciclo</p>
+            <section class="titulo2">
+                <p class="sub2">Ciclo 1: crecimiento Inicial</p>
+                <button>+Agregar Registro</button>
+            </section>
+            <table>
+                <thead>
+                    <tr>
+                    <th>Edad (días)</th>
+                    <th>Peso Promedio (Kg)</th>
+                    <th>Fecha de Registro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>30</td>
+                        <td>15</td>
+                        <td>2024-01-15</td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td>35</td>
+                        <td>2024-02-14</td>
+                    </tr>
+                    <tr>
+                        <td>90</td>
+                        <td>60</td>
+                        <td>2024-03-15</td>
+                    </tr>
+                    <tr>
+                        <td>120</td>
+                        <td>90</td>
+                        <td>2024-04-14</td>
+                    </tr>
+                    <tr>
+                        <td>150</td>
+                        <td>120</td>
+                        <td>2024-05-14</td>
+                    </tr>
+                </tbody>
+            </table>
+            <article>
+                <section class="grafico-container">
+                    <article class="info">
+                        <h4>Evolución del Crecimiento</h4>
+                        <h1>120 <span>Kg</span></h1>
+                        <p>150 días - <span class="porcentaje">105%</span></p>
+                        <img src="img/porqui.png" alt="Cerdito creciendo">
+                    </article>
+                    <article class="grafico">
+                        <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 180 Q60 160, 100 60 Q160 10, 220 60 Q280 180, 340 120 Q400 60, 480 80"
+                            stroke="green" fill="none" stroke-width="2" />
+                            <text x="40" y="195" font-size="10">30d</text>
+                            <text x="110" y="195" font-size="10">80d</text>
+                            <text x="190" y="195" font-size="10">90d</text>
+                            <text x="270" y="195" font-size="10">120d</text>
+                            <text x="360" y="195" font-size="10">150d</text>
+                        </svg>
+                    </article>
+                </section>
+            </article>
+        </footer>
+    </main>
+
+
+</body>
+</html>
