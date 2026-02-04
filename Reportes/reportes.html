@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Reportes y Análisis</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar__left">
+                <div class="brand">
+                    <!-- Placeholder logo (reemplaza por <img src="logo.png"> si ya lo tienes) -->
+                    <div class="brand__logo" aria-label="Logo">
+                        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                            <circle cx="32" cy="32" r="29"
+                                stroke="rgba(255,255,255,.85)"
+                                stroke-width="3" />
+                            <path d="M18 37c2-7 8-12 15-12h6c5 0 7 3 7 7v5"
+                                stroke="rgba(255,255,255,.9)" stroke-width="3"
+                                stroke-linecap="round" />
+                            <path d="M20 39h28" stroke="rgba(255,255,255,.9)"
+                                stroke-width="3" stroke-linecap="round" />
+                            <path d="M24 26c1-3 4-5 8-5"
+                                stroke="rgba(255,255,255,.9)" stroke-width="3"
+                                stroke-linecap="round" />
+                            <circle cx="25" cy="34" r="2"
+                                fill="rgba(255,255,255,.9)" />
+                            <circle cx="41" cy="34" r="2"
+                                fill="rgba(255,255,255,.9)" />
+                        </svg>
+                    </div>
+                    <div class="brand__text">
+                        <div class="brand__title">Sistema Integral de</div>
+                        <div class="brand__title">Gestión Porcina</div>
+                    </div>
+                </div>
+
+                <nav class="nav">
+                    <a class="nav__link" href="#">Inicio</a>
+                    <a class="nav__link" href="#">Salud</a>
+                    <a class="nav__link nav__link--active"
+                        href="#">Alimentación</a>
+                    <a class="nav__link" href="#">Reproducción</a>
+                    <a class="nav__link" href="#">Inventario</a>
+                    <a class="nav__link" href="#">Ventas</a>
+                    <a class="nav__link" href="#">Configuración</a>
+                </nav>
+            </div>
+
+            <div class="topbar__right">
+                <button class="avatar" aria-label="Perfil">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                            d="M12 12a4.2 4.2 0 1 0-4.2-4.2A4.2 4.2 0 0 0 12 12Z"
+                            stroke="rgba(0,0,0,.55)" stroke-width="2" />
+                        <path d="M4.5 20.2c1.6-4 13.4-4 15 0"
+                            stroke="rgba(0,0,0,.55)" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Page -->
+        <main class="page">
+            <h1 class="page__title">Reportes y Análisis</h1>
+            <p class="page__subtitle">Informacion detallada sobre el rendimiento
+                de la granja porcina</p>
+
+            <!-- Tabs -->
+            <div class="tabs" role="tablist" aria-label="Secciones de reportes">
+                <button class="tab tab--active" role="tab"
+                    aria-selected="true">Productividad</button>
+                <button class="tab" role="tab"
+                    aria-selected="false">Salud</button>
+                <button class="tab" role="tab"
+                    aria-selected="false">Reproduccion</button>
+                <button class="tab" role="tab"
+                    aria-selected="false">Ventas</button>
+            </div>
+
+            <!-- Top cards -->
+            <section class="grid grid--2">
+                <article class="card">
+                    <div class="card__head">
+                        <h3 class="card__title">Tendencia General de
+                            Productividad</h3>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric__value">+15%</div>
+                        <div class="metric__note">Ultimos 3 meses</div>
+                    </div>
+
+                    <!-- Sparkline -->
+                    <div class="chart chart--spark">
+                        <svg viewBox="0 0 560 160" preserveAspectRatio="none"
+                            aria-hidden="true">
+                            <path class="spark"
+                                d="M0,120
+                 C20,60 45,40 70,55
+                 C90,65 95,95 115,90
+                 C135,85 135,25 155,35
+                 C175,45 170,90 195,85
+                 C220,80 220,75 245,78
+                 C270,81 275,95 300,92
+                 C325,89 330,70 355,74
+                 C380,78 395,35 420,38
+                 C445,41 455,70 480,78
+                 C505,86 505,20 530,25
+                 C545,28 552,110 560,120" />
+                        </svg>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card__head">
+                        <h3 class="card__title">Productividad por Lote</h3>
+                    </div>
+
+                    <div class="metric metric--tight">
+                        <div class="metric__value">120 cerdos</div>
+                        <div class="metric__note">Lote Actual (-10%)</div>
+                    </div>
+
+                    <div class="lot-axis">
+                        <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span>
+                    </div>
+
+                    <div class="lot-blank" aria-hidden="true"></div>
+                </article>
+            </section>
+
+            <!-- Alerts -->
+            <section class="section">
+                <h2 class="section__title">Alertas con IA</h2>
+
+                <div class="alerts">
+                    <div class="alert">
+                        <div class="alert__icon alert__icon--warn"
+                            aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3 2.8 20h18.4L12 3Z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M12 9v5" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <circle cx="12" cy="17" r="1.2"
+                                    fill="currentColor" />
+                            </svg>
+                        </div>
+                        <div class="alert__body">
+                            <div class="alert__title">Alerta de Salud</div>
+                            <div class="alert__text">Posible problema de salud
+                                detectado en el Lote C Monitorear de cerca los
+                                sintomas</div>
+                        </div>
+                    </div>
+
+                    <div class="alert">
+                        <div class="alert__icon alert__icon--growth"
+                            aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M4 19V5" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <path d="M8 19v-6" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <path d="M12 19v-9" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <path d="M16 19v-12" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <path d="M20 8l-4 2-4-3-4 2"
+                                    stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="alert__body">
+                            <div class="alert__title">Alerta de
+                                Crecimiento</div>
+                            <div class="alert__text">La tasa de crecimiento en
+                                el Lote D esta por debajo del promedio. Revisar
+                                el plan de alimentacion</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Predictions -->
+            <section class="section">
+                <h2 class="section__title">Predicciones</h2>
+
+                <div class="grid grid--2 grid--pred">
+                    <article class="card card--soft">
+                        <div class="kicker">TASA DE CRECIMIENTO PREVISTA</div>
+
+                        <div class="metric metric--big">
+                            <div class="metric__value">+ 10%</div>
+                            <div
+                                class="metric__note metric__note--green">Proximo
+                                3 meses</div>
+                        </div>
+
+                        <div class="chart chart--dashed">
+                            <svg viewBox="0 0 560 180"
+                                preserveAspectRatio="none" aria-hidden="true">
+                                <path class="dash"
+                                    d="M0,90
+                   C40,140 70,60 110,95
+                   C150,130 180,40 220,88
+                   C260,140 300,55 340,92
+                   C380,135 410,30 450,60
+                   C490,95 520,170 560,120" />
+                            </svg>
+                        </div>
+                    </article>
+
+                    <article class="card card--soft">
+                        <div class="kicker">RENTABILIDAD PREVISTA</div>
+
+                        <div class="metric metric--big">
+                            <div class="metric__value">$ 5,000</div>
+                            <div
+                                class="metric__note metric__note--green">Proximo
+                                6 meses (+5%)</div>
+                        </div>
+
+                        <div class="months">
+                            <span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span><span
+                                class="months__active">M7</span>
+                        </div>
+
+                        <div class="profit-line" aria-hidden="true">
+                            <span class="profit-line__dash"></span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+        </main>
+    </body>
+</html>

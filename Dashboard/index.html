@@ -1,95 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salud Porcina</title>
+    <title>Dashboard General</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav>
-        <img src="icon/Logo.jpg" alt="logo-sena">
-        <h1>Sistema Integral de Gestion Porcina</h1>
-        <ul>
-            <li><a href="">Resumen</a></li>
-            <li><a href="">Salud</a></li>
-            <li><a href="">Alimentacion</a></li>
-            <li><a href="">Reproduccion</a></li>
-            <li><a href="">Inventario</a></li>
-            <li><a href="">Ventas</a></li>
-        </ul>
-    </nav>
-    <header>
-        <h2>Salud Porcina</h2>
-        <ul>
-            <li><a href="">Vacunaciones</a></li>
-            <li><a href="">Diagnosticos</a></li>
-            <li><a href="">Tratamientos</a></li>
-            <li><a href="">Historial Veterinario</a></li>
-        </ul>
-    </header>
-    <section>
-        <article>
-            <h3>Registro de Vacunacion</h3>
-            <form action="get">
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-logo">SIGP</div>
+            </div>
+
+            <p class="sidebar-title">NAVEGACION</p>
+            <nav class="menu">
+                <a class="menu-item active" href="#">
+                    <span class="dot green"></span>
+                    Etapas de crecimiento
+                </a>
+                <a class="menu-item" href="#">
+                    <span class="dot"></span>
+                    Alimentacion
+                </a>
+                <a class="menu-item" href="#">
+                    <span class="dot"></span>
+                    Registro de peso
+                </a>
+                <a class="menu-item" href="#">
+                    <span class="dot"></span>
+                    Reproduccion
+                </a>
+                <a class="menu-item" href="#">
+                    <span class="dot"></span>
+                    Inventario y ventas
+                </a>
+                <a class="menu-item" href="#">
+                    <span class="dot"></span>
+                    Salud
+                </a>
+                <a class="menu-item" href="#">
+                    <span class="dot"></span>
+                    Alertas y reportes
+                </a>
+            </nav>
+
+            <div class="user-card">
+                <div class="avatar"></div>
                 <div>
-                    <label for="fecha">Fecha de Vacunacion</label>
-                    <input type="date" id="fecha">
-                    <label for="dosis">Dosis</label>
-                    <input type="date" id="dosis">
+                    <p class="user-name">Administrador</p>
+                    <p class="user-role">Vista General</p>
                 </div>
+            </div>
+        </aside>
 
-                <label for="lote">Lote</label>
-                <input type="number" id="lote">
+        <main class="content">
+            <section class="hero">
+                <h1>Dashboard General</h1>
+                <div class="section-label">
+                    <span class="badge">i</span>
+                    <h2>Resumen de Informacion Clave</h2>
+                </div>
+                <div class="stats">
+                    <article class="stat-card">
+                        <p class="stat-title">TOTAL DE CERDOS</p>
+                        <div class="stat-value">
+                            <span class="number" id="stat-total">1500</span>
+                            <span class="chip up" id="stat-total-var">+2.5%</span>
+                        </div>
+                        <div class="bar green" id="bar-total"></div>
+                    </article>
+                    <article class="stat-card">
+                        <p class="stat-title">CERDOS EN CRECIMIENTO</p>
+                        <div class="stat-value">
+                            <span class="number" id="stat-growth">1200</span>
+                            <span class="chip neutral" id="stat-growth-var">80% del total</span>
+                        </div>
+                        <div class="bar blue" id="bar-growth"></div>
+                    </article>
+                    <article class="stat-card">
+                        <p class="stat-title">CERDOS LISTOS PARA VENTA</p>
+                        <div class="stat-value">
+                            <span class="number" id="stat-ready">300</span>
+                            <span class="chip neutral" id="stat-ready-var">20% del total</span>
+                        </div>
+                        <div class="bar orange" id="bar-ready"></div>
+                    </article>
+                </div>
+            </section>
 
-                <label for="animal">Lote</label>
-                <input type="number" id="animal">
+            <section class="quick-access">
+                <div class="section-label">
+                    <span class="badge">⚡</span>
+                    <h2>Accesos Rapidos</h2>
+                </div>
+                <div class="quick-grid">
+                    <button class="quick-btn">Registrar nuevo cerdo</button>
+                    <button class="quick-btn">Ver inventario</button>
+                    <button class="quick-btn">Registrar alimentacion</button>
+                    <button class="quick-btn">Ver reportes de salud</button>
+                </div>
+            </section>
 
-                <label for="vacuna">Lote</label>
-                <input type="number" id="vacuna">
+            <section class="panels">
+                <article class="panel">
+                    <h3>Actividad Reciente</h3>
+                    <ul class="activity">
+                        <li>
+                            <span class="bullet green"></span>
+                            <div>
+                                <p class="activity-title">Nuevo lote registrado</p>
+                                <p class="activity-meta">Hace 2 horas - Sector B-04</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="bullet blue"></span>
+                            <div>
+                                <p class="activity-title">Vacunacion completada</p>
+                                <p class="activity-meta">Hace 5 horas - Sector A-12</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="bullet orange"></span>
+                            <div>
+                                <p class="activity-title">Alerta de peso bajo</p>
+                                <p class="activity-meta">Ayer - Corral 09</p>
+                            </div>
+                        </li>
+                    </ul>
+                </article>
 
-                <label for="observaciones" >Lote</label>
-                <input type="number" id="observaciones">
-            </form>
-        </article>
-        <article>
-            <h3>Alertad de Vacunacion</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Animal</th>
-                        <th>Vacuna</th>
-                        <th>Fecha Próx.</th>
-                        <th>Estado</th>
-                    </tr>
-                    <tr>
-                        <td>Cerdito 1</td>
-                        <td>Fiebre Porcina</td>
-                        <td>2025-10-10</td>
-                        <td>Pendiente</td>
-                    </tr>
-                    <tr>
-                        <td>Cerdito 1</td>
-                        <td>Fiebre Porcina</td>
-                        <td>2025-10-10</td>
-                        <td>Pendiente</td>
-                    </tr>
-                    <tr>
-                        <td>Cerdito 1</td>
-                        <td>Fiebre Porcina</td>
-                        <td>2025-10-10</td>
-                        <td>Pendiente</td>
-                    </tr>
-                    <tr>
-                        <td>Cerdito 1</td>
-                        <td>Fiebre Porcina</td>
-                        <td>2025-10-05</td>
-                        <td>Completado</td>
-                    </tr>
-                </thead>
-            </table>
-        </article>
-    </section>
-    <button><a href="">Guardar</a></button>
+                <article class="panel">
+                    <h3>Optimizacion de Feed</h3>
+                    <p class="panel-text">
+                        Basado en el crecimiento actual, se sugiere ajustar la
+                        racion del Lote #42.
+                    </p>
+                    <a class="panel-link" href="#">Ver detalles →</a>
+                </article>
+            </section>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestión de Alimentación</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app">
+
+        <aside class="sidebar">
+            <div class="brand" aria-label="Logo">
+                <!-- Placeholder logo (reemplaza con tu imagen si quieres) -->
+                <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                    <circle cx="32" cy="32" r="30" stroke="#1f6f2a" stroke-width="3" />
+                    <path d="M18 37c2-7 8-12 15-12h6c5 0 7 3 7 7v5" stroke="#1f6f2a" stroke-width="3"
+                        stroke-linecap="round" />
+                    <path d="M20 39h28" stroke="#1f6f2a" stroke-width="3" stroke-linecap="round" />
+                    <path d="M24 26c1-3 4-5 8-5" stroke="#1f6f2a" stroke-width="3" stroke-linecap="round" />
+                    <circle cx="25" cy="34" r="2" fill="#1f6f2a" />
+                    <circle cx="41" cy="34" r="2" fill="#1f6f2a" />
+                </svg>
+            </div>
+
+            <h2>Sistema Integral de<br />Gestión Porcina</h2>
+
+            <nav class="menu">
+                <a href="#">Salud</a>
+                <a href="#">Alimentación</a>
+                <a href="#">Reproducción</a>
+                <a href="#">Inventario</a>
+                <a href="#">Ventas</a>
+                <a href="#">Reportes</a>
+                <a href="#">Pedagogía</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <header class="title">
+                <h1>Gestión de Alimentación</h1>
+                <p>Registra y Consulta el historial de alimentación de los porcinos</p>
+            </header>
+
+            <section class="card">
+                <h3>Registrar Nuevo Consumo</h3>
+
+                <form class="form" onsubmit="event.preventDefault();">
+                    <div>
+                        <label for="tipo">Tipo de Alimento</label>
+                        <select id="tipo" class="field">
+                            <option selected disabled>Seleccionar Tipo</option>
+                            <option>Concentrado</option>
+                            <option>Maíz</option>
+                            <option>Suplemento</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="row-2">
+                        <div>
+                            <label for="kg">Cantidad en (Kg)</label>
+                            <input id="kg" type="number" min="0" step="0.01" class="field" placeholder="" />
+                        </div>
+
+                        <div>
+                            <label for="agua">Consumo de Agua (litros)</label>
+                            <input id="agua" type="number" min="0" step="0.01" class="field" placeholder="" />
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="btn" type="submit">Registrar</button>
+                    </div>
+                </form>
+            </section>
+
+            <h2 class="section-title">Historial de Registro</h2>
+
+            <section class="card table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">Fecha</th>
+                            <th style="width: 32%;">Tipo de Alimento</th>
+                            <th style="width: 25%;">Cantidad (Kg)</th>
+                            <th style="width: 25%;">Agua (litros)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas de ejemplo (borra si no quieres) -->
+                        <!--
+            <tr>
+              <td>2026-02-03</td>
+              <td>Concentrado</td>
+              <td>12</td>
+              <td>18</td>
+            </tr>
+            -->
+                        <tr class="empty">
+                            <td colspan="4"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+</body>
+
+</html>
