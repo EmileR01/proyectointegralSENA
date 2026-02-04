@@ -1,0 +1,160 @@
+:root {
+  --verde-oscuro: #0B8F2E;
+  --verde-claro: #8BC34A;
+  --gris-fondo: #f4f6f7;
+  --texto: #2e2e2e;
+  --blanco: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--gris-fondo);
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    var(--verde-oscuro),
+    var(--verde-claro)
+  );
+  color: white;
+  padding: 20px;
+}
+
+/* LOGO CIRCULAR */
+.logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-circulo {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-circulo img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.logo h2 {
+  font-size: 14px;
+  line-height: 1.4;
+  color: white;
+}
+
+/* NAV */
+nav a {
+  display: block;
+  padding: 10px;
+  margin-bottom: 8px;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  text-align: center;
+}
+
+nav a.activo,
+nav a:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* CONTENIDO */
+.contenido {
+  flex: 1;
+  padding: 30px 40px;
+}
+
+h1 {
+  font-size: 36px;
+  color: var(--texto);
+}
+
+.descripcion {
+  color: #666;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* CARDS */
+.card {
+  background: var(--blanco);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* FORM */
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* BOTONES */
+.btn-verde {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    var(--verde-oscuro),
+    var(--verde-claro)
+  );
+}
+
+.btn-claro {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #e8f5e9;
+  color: var(--verde-oscuro);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* HISTORIAL */
+.historial div {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}

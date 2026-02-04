@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Peso</title>
+  <link rel="stylesheet" href="css/rp.css">
+</head>
+<body>
+
+<!-- MENÚ LATERAL -->
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-circulo">
+      <img src="img/logo.jpg" alt="Logo Gestión Porcina">
+    </div>
+    <h2>Sistema Integral de<br>Gestión Porcina</h2>
+  </div>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Alimentación</a>
+    <a href="#">Registro de Peso</a>
+    <a href="">Reproducción</a>
+    <a href="#">Inventario y ventas</a>
+    <a href="#">Salud</a>
+    <a href="#">Alertas y Reportes </a>
+
+    <a class="activo" href="#">Peso</a>
+  </nav>
+</aside>
+
+<!-- CONTENIDO PRINCIPAL -->
+<main class="contenido">
+  <h1>Registro de Peso</h1>
+  <p class="descripcion">
+    Ingresa periódicamente los datos de peso de los porcinos
+    para un seguimiento detallado.
+  </p>
+
+  <section class="grid">
+
+    <!-- NUEVO REGISTRO -->
+    <div class="card">
+      <h3>Nuevo Registro</h3>
+
+      <label>Fecha</label>
+      <input type="date" id="fecha">
+
+      <label>Peso Actual (kg)</label>
+      <input type="number" id="peso" placeholder="Ej: 82.5">
+
+      <label>Identificación del Animal</label>
+      <input type="text" id="animal" placeholder="Ej: P001">
+
+      <button class="btn-verde" onclick="guardarPeso()">
+        Guardar Peso
+      </button>
+    </div>
+
+    <!-- HISTORIAL -->
+    <div class="card">
+      <h3>Historial Reciente</h3>
+      <div class="historial"></div>
+    </div>
+
+    <!-- REPORTES -->
+    <div class="card">
+      <h3>Reportes y Análisis</h3>
+      <button class="btn-claro">Generar Reporte de Peso</button>
+      <button class="btn-claro">Ver Curva de Crecimiento</button>
+    </div>
+
+  </section>
+</main>
+
+<script src="js/rp.js"></script>
+</body>
+</html>
