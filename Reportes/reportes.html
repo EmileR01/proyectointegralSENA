@@ -13,63 +13,72 @@
     </head>
 
     <body>
-        <!-- Topbar -->
-        <header class="topbar">
-            <div class="topbar__left">
-                <div class="brand">
-                    <!-- Placeholder logo (reemplaza por <img src="logo.png"> si ya lo tienes) -->
-                    <div class="brand__logo" aria-label="Logo">
-                        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                            <circle cx="32" cy="32" r="29"
-                                stroke="rgba(255,255,255,.85)"
-                                stroke-width="3" />
-                            <path d="M18 37c2-7 8-12 15-12h6c5 0 7 3 7 7v5"
-                                stroke="rgba(255,255,255,.9)" stroke-width="3"
-                                stroke-linecap="round" />
-                            <path d="M20 39h28" stroke="rgba(255,255,255,.9)"
-                                stroke-width="3" stroke-linecap="round" />
-                            <path d="M24 26c1-3 4-5 8-5"
-                                stroke="rgba(255,255,255,.9)" stroke-width="3"
-                                stroke-linecap="round" />
-                            <circle cx="25" cy="34" r="2"
-                                fill="rgba(255,255,255,.9)" />
-                            <circle cx="41" cy="34" r="2"
-                                fill="rgba(255,255,255,.9)" />
-                        </svg>
-                    </div>
-                    <div class="brand__text">
-                        <div class="brand__title">Sistema Integral de</div>
-                        <div class="brand__title">Gestión Porcina</div>
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-circulo">
+                    <img src="../img/Logo.jpg" alt="Logo Gestión Porcina">
+                </div>
+                <h2>Sistema Integral de<br>Gestión Porcina</h2>
+            </div>
+            <nav>
+                <a href="../Dashboard/index.html">Inicio</a>
+                <a href="../Alimentacion/alimentacion.html">Alimentación</a>
+                <a href="../EtapasCrecimiento/registroPeso/htmlp.html">Registro de Peso</a>
+                <a href="../reproduccion/re.html">Reproducción</a>
+                <a href="../Reportes/reportes.html">Inventario y Ventas</a>
+                <a href="../Vacunacion_Porcina_Completa/index.html">Vacunación</a>
+                <a class="activo" href="../Reportes/reportes.html">Alertas y Reportes</a>
+            </nav>
+        </aside>
+
+        <div class="contenido">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar__left">
+                    <div class="brand">
+                        <!-- Placeholder logo (reemplaza por <img src="logo.png"> si ya lo tienes) -->
+                        <div class="brand__logo" aria-label="Logo">
+                            <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                                <circle cx="32" cy="32" r="29"
+                                    stroke="rgba(255,255,255,.85)"
+                                    stroke-width="3" />
+                                <path d="M18 37c2-7 8-12 15-12h6c5 0 7 3 7 7v5"
+                                    stroke="rgba(255,255,255,.9)" stroke-width="3"
+                                    stroke-linecap="round" />
+                                <path d="M20 39h28" stroke="rgba(255,255,255,.9)"
+                                    stroke-width="3" stroke-linecap="round" />
+                                <path d="M24 26c1-3 4-5 8-5"
+                                    stroke="rgba(255,255,255,.9)" stroke-width="3"
+                                    stroke-linecap="round" />
+                                <circle cx="25" cy="34" r="2"
+                                    fill="rgba(255,255,255,.9)" />
+                                <circle cx="41" cy="34" r="2"
+                                    fill="rgba(255,255,255,.9)" />
+                            </svg>
+                        </div>
+                        <div class="brand__text">
+                            <div class="brand__title">Sistema Integral de</div>
+                            <div class="brand__title">Gestión Porcina</div>
+                        </div>
                     </div>
                 </div>
 
-                <nav class="nav">
-                    <a class="nav__link" href="../Dashboard/index.html">Inicio</a>
-                    <a class="nav__link" href="../Alimentacion/alimentacion.html">Alimentación</a>
-                    <a class="nav__link" href="../EtapasCrecimiento/registroPeso/htmlp.html">Registro de Peso</a>
-                    <a class="nav__link" href="../reproduccion/re.html">Reproducción</a>
-                    <a class="nav__link" href="../Reportes/reportes.html">Inventario y Ventas</a>
-                    <a class="nav__link" href="../Vacunacion_Porcina_Completa/index.html">Vacunación</a>
-                    <a class="nav__link nav__link--active" href="../Reportes/reportes.html">Alertas y Reportes</a>
-                </nav>
-            </div>
+                <div class="topbar__right">
+                    <button class="avatar" aria-label="Perfil">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path
+                                d="M12 12a4.2 4.2 0 1 0-4.2-4.2A4.2 4.2 0 0 0 12 12Z"
+                                stroke="rgba(0,0,0,.55)" stroke-width="2" />
+                            <path d="M4.5 20.2c1.6-4 13.4-4 15 0"
+                                stroke="rgba(0,0,0,.55)" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+            </header>
 
-            <div class="topbar__right">
-                <button class="avatar" aria-label="Perfil">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path
-                            d="M12 12a4.2 4.2 0 1 0-4.2-4.2A4.2 4.2 0 0 0 12 12Z"
-                            stroke="rgba(0,0,0,.55)" stroke-width="2" />
-                        <path d="M4.5 20.2c1.6-4 13.4-4 15 0"
-                            stroke="rgba(0,0,0,.55)" stroke-width="2"
-                            stroke-linecap="round" />
-                    </svg>
-                </button>
-            </div>
-        </header>
-
-        <!-- Page -->
-        <main class="page">
+            <!-- Page -->
+            <main class="page">
             <h1 class="page__title">Reportes y Análisis</h1>
             <p class="page__subtitle">Informacion detallada sobre el rendimiento
                 de la granja porcina</p>
@@ -244,5 +253,6 @@
             </section>
 
         </main>
+        </div>
     </body>
 </html>

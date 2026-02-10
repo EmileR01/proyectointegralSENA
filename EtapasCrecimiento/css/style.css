@@ -1,31 +1,73 @@
 *{
     border: 1px;
     box-sizing: border-box;
-    font-family:Calibri;
+    font-family: Calibri;
 }
+
+body {
+    margin: 0;
+    display: flex;
+    background: #f4f6f7;
+}
+
 main{
-    display: flex;
+    flex: 1;
+    padding: 30px 40px;
 }
-header{
-    background-color: rgb(30, 213, 30);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.img1{
-    width: 40%;
-    border-radius: 50%;
-    margin-top: 10px;
-}
-.p1{
-    font-size: 30px;
-}
-.p2{
-    border-radius: 10%;
-    margin-bottom: 35px;
-    font-size: 20px;
-    cursor: pointer;
-}
+
 article{
     display: flex;
+}
+
+/* Sidebar estilo Registro de Peso */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0b8f2e, #8bc34a);
+    color: #fff;
+    padding: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-circulo {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-circulo img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.logo h2 {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #fff;
+    margin: 0;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 8px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.sidebar nav a.activo,
+.sidebar nav a:hover {
+    background: rgba(255, 255, 255, 0.25);
 }

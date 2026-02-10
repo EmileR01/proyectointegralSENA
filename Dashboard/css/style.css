@@ -389,3 +389,62 @@ body {
         font-size: 1.7rem;
     }
 }
+
+/* Sidebar estilo Registro de Peso */
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0b8f2e, #8bc34a);
+    color: #fff;
+    padding: 20px;
+    border-right: none;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-circulo {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-circulo img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.logo h2 {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #fff;
+    margin: 0;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 8px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.sidebar nav a.activo,
+.sidebar nav a:hover {
+    background: rgba(255, 255, 255, 0.25);
+}

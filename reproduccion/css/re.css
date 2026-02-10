@@ -49,25 +49,27 @@ body {
   object-fit: contain;
 }
 
-.logo p {
+.logo h2 {
   font-size: 14px;
-  line-height: 1.3;
+  line-height: 1.4;
+  color: #fff;
+  margin: 0;
 }
 
-nav a {
+.sidebar nav a {
   display: block;
-  text-decoration: none;
-  background: rgba(255,255,255,0.25);
   padding: 10px;
-  margin: 8px 0;
+  margin-bottom: 8px;
+  color: #fff;
+  text-decoration: none;
   border-radius: 20px;
   text-align: center;
-  color: white;
+  background: transparent;
 }
 
-nav a.activo {
-  background: white;
-  color: var(--verde-oscuro);
+.sidebar nav a.activo,
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .btn-sidebar {
