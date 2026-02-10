@@ -1,0 +1,175 @@
+:root {
+  --verde-oscuro: #0B8F2E;
+  --verde-claro: #8BC34A;
+  --gris-fondo: #f4f6f7;
+  --texto: #333;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  background: var(--gris-fondo);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--verde-oscuro), var(--verde-claro));
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-circulo {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-circulo img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.logo p {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  background: rgba(255,255,255,0.25);
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
+
+nav a.activo {
+  background: white;
+  color: var(--verde-oscuro);
+}
+
+.btn-sidebar {
+  margin-top: auto;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #1b5e20;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ===== CONTENIDO ===== */
+.contenido {
+  flex: 1;
+  padding: 30px 40px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+/* ===== TABS ===== */
+.tabs {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  color: #666;
+  cursor: pointer;
+}
+
+.tab.activo {
+  color: var(--verde-oscuro);
+  border-bottom: 3px solid var(--verde-oscuro);
+  padding-bottom: 5px;
+}
+
+/* ===== BUSCADOR ===== */
+.buscador {
+  margin: 15px 0;
+}
+
+.buscador input {
+  padding: 10px;
+  width: 260px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* ===== TABLA ===== */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tabla th {
+  text-align: left;
+  padding: 14px;
+  background: #f0f0f0;
+}
+
+.tabla td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.tabla a {
+  color: var(--verde-oscuro);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===== ESTADOS ===== */
+.estado {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.estado.activo {
+  background: #dcedc8;
+  color: #2e7d32;
+}
+
+.estado.inactivo {
+  background: #f8bbd0;
+  color: #880e4f;
+}

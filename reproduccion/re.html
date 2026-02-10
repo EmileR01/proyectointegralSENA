@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reproducción</title>
+  <link rel="stylesheet" href="css/re.css">
+</head>
+<body>
+
+<!-- MENÚ LATERAL -->
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-circulo">
+      <img src="imagenes/Logo.jpg" alt="Logo Gestión Porcina">
+    </div>
+    <h1>sistema integral de <br> Gestión porcina </h1></h2>
+  </div>
+
+    <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Alimentación</a>
+    <a href="#">Registro de Peso</a>
+    <a href="">Reproducción</a>
+    <a href="#">Inventario y ventas</a>
+    <a href="#">Salud</a>
+    <a href="#">Alertas y Reportes </a>
+
+    <a class="activo" href="#">Reproduccion</a>
+  </nav>
+  <button class="btn-sidebar"> Nuevo evento </button>
+</aside>
+
+
+
+<!-- CONTENIDO PRINCIPAL -->
+<main class="contenido">
+  <h1>Reproducción </h1>
+
+  <!-- PESTAÑA -->
+   <div class="tbs">
+    <button class="tab activo">Celo</button>
+    <button class="tab">Inseminación</button>
+    <button class="tab">Gestión</button>
+    <button class="tab">Partos</button>
+
+   </div>
+   <h2>Historial Reproductivo</h2>
+
+   <!-- BUSCADOR -->
+  <div class="buscador">
+    <input type="text" placeholder="Buscar animal...">
+  </div>
+
+  <!-- TABLA -->
+  <table class="tabla">
+    <thead>
+      <tr>
+        <th>ID ANIMAL</th>
+        <th>FECHA CELO</th>
+        <th>ESTADO</th>
+        <th>ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>67890</td>
+        <td>2025-11-20</td>
+        <td><span class="estado activo">Activo</span></td>
+        <td><a href="#">Ver Detalles</a></td>
+      </tr>
+
+      <tr>
+        <td>67890</td>
+        <td>2024-07-20</td>
+        <td><span class="estado inactivo">Inactivo</span></td>
+        <td><a href="#">Ver Detalles</a></td>
+      </tr>
+
+      <tr>
+        <td>11223</td>
+        <td>2025-12-16</td>
+        <td><span class="estado activo">Activo</span></td>
+        <td><a href="#">Ver Detalles</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</main>
+
+<script src="js/re.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
