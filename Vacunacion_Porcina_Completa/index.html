@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vacunación Porcina</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <section class="barralateral">
+            <aside class="sidebar">
+                <div class="logo">
+                    <h2>Sistema Integral de<br>Gestión Porcina</h2>
+                </div>
+
+                <nav>
+                    <button class="activo" href="#">Inicio</button>
+                    <button class="activo" href="#">Alimentación</button>
+                    <button class="activo" href="#">Registro de Peso</button>
+                    <button class="activo" href="">Reproducción</button>
+                    <button class="activo" href="#">Inventario y ventas</button>
+                    <button class="activo" href="#">Salud</button>
+                    <button class="activo" href="#">Alertas y Reportes </button>
+                    <button class="activo" href="#">Peso</button>
+                </nav>
+        </aside>
+    </section>
+
+    <section class="conjunto">
+        <header>
+            <img src="img/logo.jpg" alt="Logo">
+            <p class="titulo1">Vacunación Porcina</p>
+            <input type="text" class="busqueda" placeholder="🔍 Buscar porcino o vacuna">
+        </header>
+
+        <section class="barras">
+            <button class="p1" onclick="render()">Vista Cuadrícula</button>
+            <button class="p1" onclick="vistaCalendario()">📅 Calendario</button>
+            <button class="p1" onclick="verPapelera()">🗑️ Papelera</button>
+        </section>
+
+        <main id="contenedorVacunas"></main>
+
+        <div id="modal" class="modal oculto">
+            <div class="modal-contenido">
+                <h3>Nueva Vacuna</h3>
+
+                <input id="nombre" placeholder="Nombre vacuna">
+                <input id="porcino" placeholder="ID Porcino">
+                <input id="fecha" type="date">
+                <input id="dosis" type="number" placeholder="Dosis (cc)">
+                <input id="responsable" placeholder="Responsable">
+
+                <select id="estado">
+                    <option value="Completada">Completada</option>
+                    <option value="Pendiente">Pendiente</option>
+                </select>
+
+                <button onclick="guardar()">💾 Guardar</button>
+                <button onclick="cerrarFormulario()">❌ Cancelar</button>
+            </div>
+        </div>
+
+        <footer>
+            <section class="acciones">
+                <button class="filtros" onclick="mostrarTodas()">Todos</button>
+                <button class="filtros" onclick="mostrarCompletadas()">Completadas ✅</button>
+                <button class="filtros" onclick="mostrarPendientes()">Pendientes ⌛</button>
+            </section>
+
+            <section class="acciones2">
+                <button class="accion1" onclick="abrirFormulario()">➕ Agregar Vacuna</button>
+                <button class="accion1" onclick="salir()">Salir</button>
+            </section>
+        </footer>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
