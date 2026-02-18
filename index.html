@@ -2,120 +2,218 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <meta name="Aplicacion" content="Proyecto 01 - Aprendiendo JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PorciTech - Porcicultura Inteligente SENA</title>
     <link rel="shortcut icon" href="icon/image.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script> 
-    <title>Proyecto Individual 05</title>
-</head> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 <body>
-    <main id="landing-page">
-        <header>
-            <img src="icon/Logo.jpg" alt="logo-sena" id="logo-sena">
-            <nav id="menu-navegacion">
-                <a href="#landing-page">Inicio</a>
-                <a href="#funcionalidades">Caracteristica</a>
-                <a href="#propuesta-footer">Precios</a>
-                <a href="#propuesta-footer">Contacto</a>
-            </nav>
-            <button class="boton_encabezado"><a href="LogIn/index.html">Iniciar Sesion</a></button>
-        </header>
-        <section id="bienvenida">
-            <article>
-                <h1>La Revolucion Digital para tu Granja Porcina</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus molestiae maiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, ea!</p>
-                <button>Iniciar Sesion</button>
-            </article>
-        </section>
-    </main>
+    <nav class="nav">
+        <div class="container nav-inner">
+            <div class="brand">
+                <img src="/proyectointegralSENA/icon/logo-sena.png" class="brand-badge">
+                <span class="brand-name-header">Porci<span class="tech">Tech</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#features">Caracteristicas</a>
+                <a href="#stats">Impacto</a>
+                <a class="btn btn-primary" href="LogIn/index.html">Acceder</a>
+            </div>
+            <button class="nav-toggle" aria-label="Abrir menu">
+                <span class="material-icons">menu</span>
+            </button>
+        </div>
+    </nav>
 
-    <section id="funcionalidades">
-        <article class="titulo-descripcion">
-            <h2 id="funciones">Funcionalidades que impulsan tu Exito</h2>
-            <p id="descripcion-funciones">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias laborum reprehenderit doloremque libero veniam exercitationem <br>necessitatibus in sunt.</p>
-        </article>
-        <section class="content-funcionalidad">
-            <article class="contenedores">
-                <img src="icon/monitoreo.png" alt="" class="iconos-funcionalidad">
-                <h3 class="funcion">Monitoreo Inteligente</h3>
-                <p class="desc-funcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quos voluptatibus temporibus.</p>
+    <header id="inicio" class="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-shapes"></div>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="pill">
+                    <span class="pulse"></span>
+                    Innovacion SENA
+                </div>
+                <h1>El futuro de al porcicultura es <span class="accent">Inteligente</span></h1>
+                <p>
+                    Optimiza la produccion porcicola con tecnologia de precision. 
+                    Analisis de datos y alertas tempranas para un campo mas productivo y sostenible.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large" onclick="window.location.href='LogIn/index.html'">
+                        Comenzar Ahora
+                        <span class="material-icons">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-media">
+                <div class="media-frame">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXR7YZphmzZRLYwrWiRa241u6l6cxLb0ufwGryyQZwx06PYvIAfe7cFVunIF9nC3fnW1zUQL3qb8AfyAC-hAjlQFXirGl0gw4Kb2Zz6nk-9v6DS-42ZGSnd2DG0zN1dngHBnubAIGyBEvRlh-EAdf3sdWAFervqfZQ0xhvO_-r31HhtnuIUrLO-0jxAXtkDiw56M7tyT2t5qCieTlycqvWica3nEelKoZsdPbQJfuW6uqCned8JGn54arlKFTGc4E9Y3on-oCRqw" alt="Granja moderna con tecnologia inteligente">
+                    <div class="media-card">
+                        <div class="media-card-head">
+                            <span>Estado del Lote</span>
+                            <span class="status">ACTIVO</span>
+                        </div>
+                        <div class="media-card-body">
+                            <div>
+                                <div class="value">98%</div>
+                                <div class="label">Eficiencia productiva</div>
+                            </div>
+                            <div class="bars">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="blob blob-yellow"></span>
+                <span class="blob blob-cyan"></span>
+            </div>
+        </div>
+    </header>
+
+    <section id="stats" class="stats">
+        <div class="container stats-grid">
+            <article>
+                <div class="stat-value">+500</div>
+                <div class="stat-label">Granjas Conectadas</div>
             </article>
-            <article class="contenedores">
-                <img src="icon/GestionR.png" alt="" class="iconos-funcionalidad">
-                <h3 class="funcion">Monitoreo Inteligente</h3>
-                <p class="desc-funcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quos voluptatibus temporibus.</p>
+            <article>
+                <div class="stat-value accent-yellow">24/7</div>
+                <div class="stat-label">Monitoreo Activo</div>
             </article>
-            <article class="contenedores">
-                <img src="icon/Finanzas.png" alt="" class="iconos-funcionalidad">
-                <h3 class="funcion">Monitoreo Inteligente</h3>
-                <p class="desc-funcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quos voluptatibus temporibus.</p>
+            <article>
+                <div class="stat-value">35%</div>
+                <div class="stat-label accent-green">Ahorro en Insumos</div>
             </article>
-        </section>
-        <section class="content-funcionalidad">
-            <article class="contenedores">
-                <img src="icon/Seguridad.png" alt="" class="iconos-funcionalidad">
-                <h3 class="funcion">Monitoreo Inteligente</h3>
-                <p class="desc-funcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quos voluptatibus temporibus.</p>
+            <article>
+                <div class="stat-value accent-cyan">10k+</div>
+                <div class="stat-label">Datos Analizados</div>
             </article>
-            <article class="contenedores">
-                <img src="icon/personalizar.png" alt="" class="iconos-funcionalidad">
-                <h3 class="funcion">Monitoreo Inteligente</h3>
-                <p class="desc-funcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quos voluptatibus temporibus.</p>
-            </article>
-            <article class="contenedores">
-                <img src="icon/Soporte.png" alt="" class="iconos-funcionalidad">
-                <h3 class="funcion">Monitoreo Inteligente</h3>
-                <p class="desc-funcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quos voluptatibus temporibus.</p>
-            </article>
-        </section>
+        </div>
     </section>
-    <section id="team-development">
-        <h2 id="titulo-equipo">Nuestro Equipo de Desarrollo</h2>
-        <section id="content-team">
-            <article class="tarjeta-equipo">
-                <img src="icon/Usuario.png" alt="imagen-santiago" class="foto-user">
-                <h3>Santiago Avirama</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta esse dolores voluptas commodi ullam necessitatibus.</p>
-            </article>
-            <article class="tarjeta-equipo">
-                <img src="icon/Usuario.png" alt="imagen-camilo" class="foto-user">
-                <h3>Ever Camilo Velasco</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta esse dolores voluptas commodi ullam necessitatibus.</p>
-            </article>
-            <article class="tarjeta-equipo">
-                <img src="icon/Usuario.png" alt="imagen-emile" class="foto-user">
-                <h3>Emile Rengifo</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta esse dolores voluptas commodi ullam necessitatibus.</p>
-            </article>
-        </section>
-        <section id="content-team">
-            <article class="tarjeta-equipo">
-                <img src="icon/Usuario.png" alt="imagen-mariana" class="foto-user">
-                <h3>Mariana Guapacha</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta esse dolores voluptas commodi ullam necessitatibus.</p>
-            </article>
-            <article class="tarjeta-equipo">
-                <img src="icon/Usuario.png" alt="imagen-yuliana" class="foto-user">
-                <h3>Yuliana Sanchez</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta esse dolores voluptas commodi ullam necessitatibus.</p>
-            </article>
-        </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <span>Ecosistema Integral</span>
+                <h2>Soluciones para cada etapa</h2>
+                <p>Nuestra plataforma integra las mejores practicas zootecnicas con tecnologia de vanguardia.</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card purple">
+                    <div class="feature-icon">
+                        <span class="material-icons">analytics</span>
+                    </div>
+                    <h3>Analisis Predictivo</h3>
+                    <p>Utiliza algoritmos avanzados para predecir el crecimiento y detectar anomalias en la produccion antes de que ocurran.</p>
+                </article>
+                <article class="feature-card cyan">
+                    <div class="feature-icon">
+                        <span class="material-icons">health_and_safety</span>
+                    </div>
+                    <h3>Salud Animal</h3>
+                    <p>Monitoreo constante de variables ambientales y sanitarias para garantizar el bienestar animal y la calidad del producto.</p>
+                </article>
+                <article class="feature-card yellow">
+                    <div class="feature-icon">
+                        <span class="material-icons">notifications_active</span>
+                    </div>
+                    <h3>Alertas Inteligentes</h3>
+                    <p>Sistema de notificaciones en tiempo real directo a tu movil sobre niveles de alimento, temperatura y seguridad.</p>
+                </article>
+            </div>
+        </div>
     </section>
-    <section id="propuesta-footer">
-        <h2>¿Listo para Transformar tu Produccion?</h2>
-        <p id="desc-propuesta">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi velit sit culpa esse nam et vel, ducimus sapiente impedit natus molestias sunt suscipit autem eius.</p>
-        <button>Descubre nuestros Software</button>
-        <footer>
-            <img src="icon/Logo.jpg" alt="logo-sena" id="logo-sena-footer">
-            <nav id="menu-footer">
-                <a href="#landing-page">Inicio</a>
-                <a href="#funcionalidades">Caracteristicas</a>
-                <a href="#propuesta-footer">Precios</a>
-                <a href="#propuesta-footer">Contacto</a>
-            </nav>
-            <p id="copyright">&copy;2025 PorciTech Todos los derechos reservados</p>
-        </footer>
+
+    <section class="tech">
+        <div class="tech-bg"></div>
+        <div class="container tech-grid">
+            <div class="tech-media">
+                <div class="tech-card">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpHX8TL_RCZ65df8Je-dApVHTqfiSq7lpm_jY4ik284XlBiWrM3fljOnWCSGiU7xCGq983tyDjICmEIfUZs0EX1Aoijrsk2Vn4-9ePskVqvJESCKCNjLvngf3TE2hrO-yZBJuCoCAwpwUk2JsogFl6qsYLwtbR15vCBs_foZTtBSSsDhAbk9VaEY0QNO9nlNSjqzgISmMq8qL-G82RZ3fDzuk2EDpsKbCwWRXmxwGk9c8AE8O1bPQ8HiSQykmxYu_OLqLE1eBhZw" alt="Tablet mostrando analisis de granja">
+                    <div class="tech-caption">
+                        <strong>Control Total</strong>
+                        <span>Desde cualquier dispositivo</span>
+                    </div>
+                </div>
+                <span class="tech-dot"></span>
+            </div>
+            <div class="tech-content">
+                <h2>Tecnologia adaptada para la porcicultura colombiana</h2>
+                <p>
+                    Entendemos los retos del campo nacional. Nuestra plataforma esta disenada para funcionar en zonas con conectividad variable y adaptarse a las necesidades especificas del pequeno y mediano productor.
+                </p>
+                <ul>
+                    <li><span class="material-icons">check_circle</span>Soporte tecnico especializado SENA</li>
+                    <li><span class="material-icons">check_circle</span>Integracion con programas de fomento agropecuario</li>
+                    <li><span class="material-icons">check_circle</span>Reportes automaticos</li>
+                </ul>
+            </div>
+        </div>
     </section>
+
+    <section class="cta">
+        <div class="cta-glow"></div>
+        <div class="container cta-inner">
+            <h2>¿Listo para transformar tu produccion?</h2>
+            <p>Unete a la red de productores que ya estan optimizando sus recursos con PorciTech.</p>
+            <div class="cta-actions">
+                <button class="btn btn-navy btn-large" onclick="window.location.href='LogIn/index.html'">Registrar mi Granja</button>
+                <button class="btn btn-outline-light btn-large">Contactar Asesor</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="brand">
+                    <img src="/proyectointegralSENA/icon/logo-sena.png" class="brand-badge">
+                    <span class="brand-name">Porci<span class="tech">Tech</span></span>
+                </div>
+                <p>Plataforma de gestion inteligente alineada con los estandares de calidad y sostenibilidad del sector agropecuario.</p>
+                <div class="social">
+                    <a href="#"><span class="material-icons">facebook</span></a>
+                    <a href="#"><span class="material-icons">ondemand_video</span></a>
+                    <a href="#"><span class="material-icons">alternate_email</span></a>
+                </div>
+            </div>
+            <div>
+                <h3>Plataforma</h3>
+                <a href="#">Caracteristicas</a>
+                <a href="#">Precios</a>
+                <a href="#">Casos de Exito</a>
+                <a href="#">Integraciones</a>
+            </div>
+            <div>
+                <h3>Recursos</h3>
+                <a href="#">Blog SENA</a>
+                <a href="#">Guias de Usuario</a>
+                <a href="#">Soporte Tecnico</a>
+                <a href="#">Normativa</a>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <div class="footer-line"><span class="material-icons">location_on</span>Bogota D.C., Colombia</div>
+                <div class="footer-line"><span class="material-icons">phone</span>+57 (1) 5461500</div>
+                <div class="footer-line"><span class="material-icons">email</span>contacto@porcitech.co</div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© 2026 PorciTech. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Politica de Privacidad</a>
+                <a href="#">Terminos de Uso</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

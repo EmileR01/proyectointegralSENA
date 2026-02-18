@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     boton.insertAdjacentElement('afterend', mensaje);
 
     const usuariosValidos = [
-        { usuario: 'admin@sena.edu.co', contrasena: '12345' },
+        { usuario: 'admin@sena.edu.co', contrasena: 'Porcitech2026*' },
         { usuario: 'usuario@sena.edu.co', contrasena: 'Proyecto2026*' }
     ];
 
