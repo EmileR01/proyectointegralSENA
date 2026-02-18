@@ -1,0 +1,51 @@
+body {
+    background-color: #f5f6f7;
+}
+
+header {
+    background-color: green;
+}
+
+.tab-active {
+    color: green;
+    font-weight: bold;
+    border-bottom: 2px solid green;
+    padding-bottom: 4px;
+}
+
+.tab {
+    color: gray;
+    cursor: pointer;
+}
+
+.badge{
+    width: 150px;
+    text-align: center;
+}
+
+.bg-pink {
+    background-color: #f3b1d6;
+}
+
+.bg-blue{
+    background-color: rgb(121, 121, 241);
+
+}
+
+.bg-green{
+    background-color: rgb(51, 200, 51);
+}
+
+.bg-purple {
+    background-color: #8c54ed;
+}
+
+table a {
+    color: green;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
