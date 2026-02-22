@@ -9,25 +9,26 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
             rel="stylesheet">
-        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="styles.css" />
     </head>
 
     <body>
         <aside class="sidebar">
             <div class="logo">
                 <div class="logo-circulo">
-                    <img src="../img/Logo.jpg" alt="Logo Gestión Porcina">
+                    <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA">
                 </div>
                 <h2>Sistema Integral de<br>Gestión Porcina</h2>
             </div>
             <nav>
-                <a href="../Dashboard/index.html">Inicio</a>
-                <a href="../Alimentacion/alimentacion.html">Alimentación</a>
-                <a href="../EtapasCrecimiento/registroPeso/htmlp.html">Registro de Peso</a>
-                <a href="../reproduccion/re.html">Reproducción</a>
-                <a href="../Reportes/reportes.html">Inventario y Ventas</a>
-                <a href="../Vacunacion_Porcina_Completa/index.html">Vacunación</a>
-                <a class="activo" href="../Reportes/reportes.html">Alertas y Reportes</a>
+                <a href="../dashboard/index.html">Inicio</a>
+                <a href="../alimentacion/index.html">Alimentación</a>
+                <a href="../registro-peso/index.html">Registro de Peso</a>
+                <a href="../reproduccion/index.html">Reproducción</a>
+                <a href="../reportes/index.html">Inventario y Ventas</a>
+                <a href="../vacunacion/index.html">Vacunación</a>
+                <a class="activo" href="../reportes/index.html">Alertas y Reportes</a>
+                <a href="../configuracion-usuarios/index.html">Configuración Usuarios</a>
             </nav>
         </aside>
 
@@ -36,25 +37,8 @@
             <header class="topbar">
                 <div class="topbar__left">
                     <div class="brand">
-                        <!-- Placeholder logo (reemplaza por <img src="logo.png"> si ya lo tienes) -->
                         <div class="brand__logo" aria-label="Logo">
-                            <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                                <circle cx="32" cy="32" r="29"
-                                    stroke="rgba(255,255,255,.85)"
-                                    stroke-width="3" />
-                                <path d="M18 37c2-7 8-12 15-12h6c5 0 7 3 7 7v5"
-                                    stroke="rgba(255,255,255,.9)" stroke-width="3"
-                                    stroke-linecap="round" />
-                                <path d="M20 39h28" stroke="rgba(255,255,255,.9)"
-                                    stroke-width="3" stroke-linecap="round" />
-                                <path d="M24 26c1-3 4-5 8-5"
-                                    stroke="rgba(255,255,255,.9)" stroke-width="3"
-                                    stroke-linecap="round" />
-                                <circle cx="25" cy="34" r="2"
-                                    fill="rgba(255,255,255,.9)" />
-                                <circle cx="41" cy="34" r="2"
-                                    fill="rgba(255,255,255,.9)" />
-                            </svg>
+                            <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA" />
                         </div>
                         <div class="brand__text">
                             <div class="brand__title">Sistema Integral de</div>
@@ -254,5 +238,6 @@
 
         </main>
         </div>
+        <script src="script.js"></script>
     </body>
 </html>

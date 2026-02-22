@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mensaje.style.color = ok ? '#0f7a3f' : '#b00020';
     }
 
-    const dashboardUrl = '../Dashboard/index.html';
+    const dashboardUrl = '../dashboard/index.html';
 
     function validar() {
         const usuario = inputUsuario.value.trim();
