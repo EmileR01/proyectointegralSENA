@@ -1,12 +1,12 @@
 // Inicialización de Iconos Lucide
 lucide.createIcons();
 
-// Mock Data de Inventario y Consumo
+// Datos de Prueba de Inventario y Consumo
 let inventoryStats = [
     { type: 'Pre-iniciador', stock: 450, capacity: 500, unit: 'kg', tone: 'bg-orange-500' },
     { type: 'Iniciador', stock: 800, capacity: 1000, unit: 'kg', tone: 'bg-amber-500' },
     { type: 'Levante', stock: 1200, capacity: 2000, unit: 'kg', tone: 'bg-blue-500' },
-    { type: 'Ceba', stock: 300, capacity: 2000, unit: 'kg', tone: 'bg-rose-500' } // Low stock example
+    { type: 'Ceba', stock: 300, capacity: 2000, unit: 'kg', tone: 'bg-rose-500' } // Ejemplo de stock bajo
 ];
 
 let dailyConsumption = [
@@ -20,7 +20,7 @@ let dailyConsumption = [
 const inventoryGrid = document.getElementById('inventoryGrid');
 const consumptionTable = document.getElementById('consumptionTable');
 
-// Modal Elements
+// Elementos del Modal
 const supplyModal = document.getElementById('supplyModal');
 const btnOpenModal = document.getElementById('btnOpenModal');
 const btnCloseModal = document.getElementById('btnCloseModal');
@@ -99,7 +99,7 @@ renderTable();
 function openModal() {
     supplyModal.classList.add('active');
     
-    // Set today's date by default
+    // Establecer la fecha de hoy por defecto
     const today = new Date().toISOString().split('T')[0];
     formDate.value = today;
 }

@@ -1,6 +1,4 @@
-/* Styles are now handled primarily by Tailwind CSS via CDN in index.html */
 body {
-    /* To prevent any flashes of unstyled content or scrollbars issues, basic resets */
     margin: 0;
     padding: 0;
 }

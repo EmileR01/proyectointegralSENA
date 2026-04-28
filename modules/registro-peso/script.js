@@ -2,10 +2,10 @@
 lucide.createIcons();
 
 let animals = [
-    { id: 'L-001', etapa: 'pre_ceba', pesos: [{ fecha: '2026-04-10', peso: 20 }, { fecha: '2026-04-20', peso: 24 }] }, // 400g/day
-    { id: 'L-002', etapa: 'levante', pesos: [{ fecha: '2026-04-05', peso: 50 }, { fecha: '2026-04-25', peso: 68 }] }, // 900g/day
-    { id: 'L-003', etapa: 'ceba_finalizacion', pesos: [{ fecha: '2026-04-10', peso: 110 }, { fecha: '2026-04-25', peso: 115 }] }, // 333g/day (Bad)
-    { id: 'L-004', etapa: 'pre_ceba', pesos: [{ fecha: '2026-04-15', peso: 15 }, { fecha: '2026-04-25', peso: 19.5 }] }, // 450g/day
+    { id: 'L-001', etapa: 'pre_ceba', pesos: [{ fecha: '2026-04-10', peso: 20 }, { fecha: '2026-04-20', peso: 24 }] }, // 400g/día
+    { id: 'L-002', etapa: 'levante', pesos: [{ fecha: '2026-04-05', peso: 50 }, { fecha: '2026-04-25', peso: 68 }] }, // 900g/día
+    { id: 'L-003', etapa: 'ceba_finalizacion', pesos: [{ fecha: '2026-04-10', peso: 110 }, { fecha: '2026-04-25', peso: 115 }] }, // 333g/día (Malo)
+    { id: 'L-004', etapa: 'pre_ceba', pesos: [{ fecha: '2026-04-15', peso: 15 }, { fecha: '2026-04-25', peso: 19.5 }] }, // 450g/día
 ];
 
 let currentFilter = 'todas';

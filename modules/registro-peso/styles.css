@@ -1,6 +1,4 @@
-/* Styles are now handled primarily by Tailwind CSS via CDN in index.html */
 body {
-    /* Basic reset */
     margin: 0;
     padding: 0;
 }

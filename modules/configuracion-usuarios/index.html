@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuración - SIGEP</title>
-    <!-- Tailwind CSS -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -19,14 +19,14 @@
             }
         }
     </script>
-    <!-- Lucide Icons -->
+    
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- CSS propio -->
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-slate-100 text-slate-900 font-sans min-h-screen">
     <div class="mx-auto flex min-h-screen w-full flex-col xl:flex-row">
-        <!-- Sidebar -->
+        
         <aside class="w-full bg-slate-950 px-6 py-8 text-white xl:min-h-screen xl:w-80 xl:px-8">
             <div class="flex items-center gap-3">
                 <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA" class="h-10 w-auto" />
@@ -52,13 +52,13 @@
             </a>
         </aside>
 
-        <!-- Main Content -->
-        <section class="flex-1 px-6 py-8 lg:px-10">
-            <div class="space-y-8 max-w-6xl mx-auto pb-10">
+        
+        <main class="flex-1 px-6 py-8 lg:px-10">
+            <section class="space-y-8 max-w-6xl mx-auto pb-10">
                 
-                <!-- Header / Perfil del Usuario Actual -->
-                <div class="p-8 rounded-3xl bg-gradient-to-br from-indigo-900 to-slate-950 text-white overflow-hidden relative shadow-sm">
-                    <!-- Decorative background circle -->
+                
+                <header class="p-8 rounded-3xl bg-gradient-to-br from-indigo-900 to-slate-950 text-white overflow-hidden relative shadow-sm">
+                    
                     <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-indigo-500 opacity-20 blur-3xl"></div>
                     
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
@@ -78,12 +78,12 @@
                             Editar mi perfil
                         </button>
                     </div>
-                </div>
+                </header>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Gestión de Equipo -->
-                    <div class="lg:col-span-2 space-y-6">
-                        <div class="flex justify-between items-end">
+                    
+                    <article class="lg:col-span-2 space-y-6">
+                        <header class="flex justify-between items-end">
                             <div>
                                 <h3 class="text-xl font-black italic text-slate-900">Gestión de Equipo</h3>
                                 <p class="text-slate-500 text-sm mt-1">Administra los accesos y roles del personal.</p>
@@ -91,7 +91,7 @@
                             <button id="btnNuevoUsuario" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md shadow-indigo-500/20 transition flex items-center gap-2">
                                 <i data-lucide="user-plus" class="w-4 h-4"></i> Nuevo Usuario
                             </button>
-                        </div>
+                        </header>
                         
                         <div class="bg-white rounded-[2rem] shadow-sm overflow-hidden border border-slate-100">
                             <div class="overflow-x-auto">
@@ -106,19 +106,19 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tablaUsuarios" class="divide-y divide-slate-100">
-                                        <!-- Renderizado desde script.js -->
+                                        
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Configuración de Seguridad -->
-                    <div class="space-y-6">
+                    
+                    <aside class="space-y-6">
                         <h3 class="text-xl font-black italic text-slate-900">Seguridad y Alertas</h3>
                         
                         <div class="p-6 rounded-3xl bg-white border border-slate-100 shadow-sm space-y-6">
-                            <!-- Notificaciones -->
+                            
                             <div>
                                 <h4 class="font-bold text-slate-800 flex items-center gap-2 mb-4">
                                     <i data-lucide="bell" class="text-indigo-500 w-5 h-5"></i> Notificaciones
@@ -147,7 +147,7 @@
 
                             <hr class="border-slate-100" />
 
-                            <!-- Cambio de Contraseña -->
+                            
                             <div>
                                 <h4 class="font-bold text-slate-800 flex items-center gap-2 mb-4">
                                     <i data-lucide="key" class="text-amber-500 w-5 h-5"></i> Cambio de Contraseña
@@ -171,14 +171,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </aside>
                 </div>
 
-            </div>
-        </section>
+            </section>
+        </main>
     </div>
 
-    <!-- Modal Form -->
+    
     <div id="userModal" class="modal fixed inset-0 z-[100] items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
         <form id="userForm" class="w-full max-w-md p-8 rounded-[2.5rem] bg-white shadow-2xl relative border border-slate-100">
             <button type="button" id="closeModalBtn" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 font-bold bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center transition-colors">
@@ -232,7 +232,7 @@
         </form>
     </div>
 
-    <!-- Scripts -->
+    
     <script src="script.js"></script>
 </body>
 </html>

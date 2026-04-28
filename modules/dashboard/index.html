@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard General - SIGEP</title>
-    <!-- Tailwind CSS -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -19,15 +19,15 @@
             }
         }
     </script>
-    <!-- Lucide Icons -->
+    
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- CSS propio -->
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-100 text-slate-900 font-sans min-h-screen">
     <div class="mx-auto flex min-h-screen w-full flex-col xl:flex-row">
         
-        <!-- Sidebar -->
+        
         <aside class="w-full bg-slate-950 px-6 py-8 text-white xl:min-h-screen xl:w-80 xl:px-8">
             <div class="flex items-center gap-3">
                 <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA" class="h-10 w-auto" />
@@ -53,10 +53,10 @@
             </a>
         </aside>
 
-        <!-- Main Content -->
-        <section class="flex-1 px-6 py-8 lg:px-10 overflow-y-auto">
+        
+        <main class="flex-1 px-6 py-8 lg:px-10 overflow-y-auto">
             
-            <!-- Header Dashboard -->
+            
             <header class="flex flex-col gap-4 mb-8 p-6 rounded-[2rem] bg-white shadow-sm lg:flex-row lg:items-end lg:justify-between border border-slate-100">
                 <div>
                     <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700">
@@ -72,14 +72,14 @@
                 </div>
             </header>
 
-            <!-- Stats Grid -->
+            
             <section class="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5" id="statsGrid">
-                <!-- Rellenado dinámicamente desde script.js -->
+                
             </section>
 
-            <!-- Quick Actions -->
-            <div class="p-6 mt-6 rounded-[2rem] bg-white shadow-sm border border-slate-100">
-                <div class="flex items-center gap-3">
+            
+            <section class="p-6 mt-6 rounded-[2rem] bg-white shadow-sm border border-slate-100">
+                <header class="flex items-center gap-3">
                     <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-100 text-lg font-bold text-amber-700">
                         ⚡
                     </div>
@@ -89,18 +89,18 @@
                         </p>
                         <h2 class="text-2xl font-black text-slate-950">Acciones frecuentes</h2>
                     </div>
-                </div>
+                </header>
 
                 <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4" id="quickActionsGrid">
-                    <!-- Rellenado dinámicamente desde script.js -->
+                    
                 </div>
-            </div>
+            </section>
 
-            <!-- Recent Activity & Suggestions -->
+            
             <section class="mt-6 grid gap-6 2xl:grid-cols-[1.2fr_0.8fr]">
                 
-                <!-- Recent Activity Table -->
-                <div class="p-6 rounded-[2rem] bg-white shadow-sm border border-slate-100">
+                
+                <article class="p-6 rounded-[2rem] bg-white shadow-sm border border-slate-100">
                     <h3 class="text-2xl font-black text-slate-950">Actividad reciente</h3>
                     <div class="mt-6 overflow-x-auto">
                         <table class="w-full text-left border-collapse">
@@ -112,23 +112,23 @@
                                 </tr>
                             </thead>
                             <tbody id="activityTableBody" class="divide-y divide-slate-100">
-                                <!-- Rellenado dinámicamente -->
+                                
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </article>
 
-                <!-- System Suggestion -->
-                <div class="p-6 rounded-[2rem] bg-slate-950 text-white shadow-xl shadow-slate-300/20" id="systemSuggestionCard">
-                    <!-- Rellenado dinámicamente (Sugerencia normal, alerta, etc) -->
-                </div>
+                
+                <aside class="p-6 rounded-[2rem] bg-slate-950 text-white shadow-xl shadow-slate-300/20" id="systemSuggestionCard">
+                    
+                </aside>
 
             </section>
 
-        </section>
+        </main>
     </div>
 
-    <!-- Scripts -->
+    
     <script src="script.js"></script>
 </body>
 </html>

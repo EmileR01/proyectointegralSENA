@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Peso - SIGEP</title>
-    <!-- Tailwind CSS -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -19,9 +19,9 @@
             }
         }
     </script>
-    <!-- Lucide Icons -->
+    
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- CSS propio -->
+    
     <link rel="stylesheet" href="styles.css">
     <style>
         .modal {
@@ -30,7 +30,6 @@
         .modal.active {
             display: flex;
         }
-        /* Custom scrollbar for horizontal filters */
         .custom-scrollbar::-webkit-scrollbar {
             height: 6px;
         }
@@ -47,7 +46,7 @@
 <body class="bg-slate-100 text-slate-900 font-sans min-h-screen">
     <div class="mx-auto flex min-h-screen w-full flex-col xl:flex-row">
         
-        <!-- Sidebar -->
+        
         <aside class="w-full bg-slate-950 px-6 py-8 text-white xl:min-h-screen xl:w-80 xl:px-8">
             <div class="flex items-center gap-3">
                 <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA" class="h-10 w-auto" />
@@ -73,12 +72,12 @@
             </a>
         </aside>
 
-        <!-- Main Content -->
-        <section class="flex-1 px-6 py-8 lg:px-10 overflow-y-auto">
+        
+        <main class="flex-1 px-6 py-8 lg:px-10 overflow-y-auto">
             
-            <div class="space-y-8 max-w-[1600px] mx-auto pb-10">
+            <section class="space-y-8 max-w-[1600px] mx-auto pb-10">
                 
-                <!-- Cabecera y Acciones Principales -->
+                
                 <header class="flex flex-col gap-6 p-8 rounded-[2rem] bg-white shadow-sm lg:flex-row lg:items-center lg:justify-between border-t-4 border-t-blue-500">
                     <div>
                         <h2 class="text-3xl font-black text-slate-900 flex items-center gap-3">
@@ -98,9 +97,9 @@
                     </div>
                 </header>
 
-                <!-- Growth Chart -->
-                <div class="bg-white p-6 rounded-[2rem] shadow-sm mb-8 border border-slate-100">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
+                
+                <article class="bg-white p-6 rounded-[2rem] shadow-sm mb-8 border border-slate-100">
+                    <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
                         <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
                             <i data-lucide="trending-up" class="text-blue-500 w-6 h-6"></i>
                             Curva de Crecimiento
@@ -113,11 +112,11 @@
                                 <div class="w-3 h-3 rounded-full bg-blue-500 border border-blue-200"></div> Promedio Real
                             </div>
                         </div>
-                    </div>
+                    </header>
                     
                     <div class="relative w-full h-72 bg-slate-50/30 rounded-2xl border border-slate-100 p-6 ml-6 mt-4">
                         <svg class="w-full h-full overflow-visible" preserveAspectRatio="none">
-                            <!-- Grid lines -->
+                            
                             <line x1="0" y1="0%" x2="100%" y2="0%" stroke="#f1f5f9" stroke-width="2" />
                             <line x1="0" y1="25%" x2="100%" y2="25%" stroke="#f1f5f9" stroke-width="2" />
                             <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#f1f5f9" stroke-width="2" />
@@ -130,7 +129,7 @@
                             <line x1="75%" y1="0" x2="75%" y2="100%" stroke="#f1f5f9" stroke-width="2" />
                             <line x1="100%" y1="0" x2="100%" y2="100%" stroke="#f1f5f9" stroke-width="2" />
                             
-                            <!-- Ideal Curve Points -->
+                            
                             <polyline 
                                 points="11.53,95.76 23.07,85.38 34.61,68.46 46.15,48.46 57.69,30 69.23,16.15 80.76,6.92 92.30,1.53 100,0"
                                 fill="none"
@@ -141,7 +140,7 @@
                                 class="drop-shadow-sm opacity-80"
                             />
                             
-                            <!-- Real Curve Points -->
+                            
                             <polyline 
                                 points="15.38,76.92 38.46,50 61.53,30" 
                                 fill="none"
@@ -153,7 +152,7 @@
                             />
                         </svg>
                         
-                        <!-- Ejes descriptivos -->
+                        
                         <div class="absolute -bottom-8 left-0 right-0 flex justify-between text-xs text-slate-400 font-bold px-0">
                             <span>0 sem</span>
                             <span>Semanas de Edad</span>
@@ -165,16 +164,16 @@
                             <span>0kg</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- Controles y Filtros -->
-                <div class="flex flex-col md:flex-row gap-6 items-center justify-between">
-                    <div class="flex gap-2 bg-white p-2 rounded-2xl shadow-sm border border-slate-100 w-full md:w-auto overflow-x-auto custom-scrollbar" id="filtersContainer">
+                
+                <section class="flex flex-col md:flex-row gap-6 items-center justify-between">
+                    <nav class="flex gap-2 bg-white p-2 rounded-2xl shadow-sm border border-slate-100 w-full md:w-auto overflow-x-auto custom-scrollbar" id="filtersContainer">
                         <button data-filter="todas" class="filter-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-colors whitespace-nowrap bg-slate-900 text-white shadow-md">Todas las Etapas</button>
                         <button data-filter="pre_ceba" class="filter-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-colors whitespace-nowrap text-slate-500 hover:bg-slate-100 hover:text-slate-800">Pre-ceba</button>
                         <button data-filter="levante" class="filter-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-colors whitespace-nowrap text-slate-500 hover:bg-slate-100 hover:text-slate-800">Levante</button>
                         <button data-filter="ceba_finalizacion" class="filter-btn px-5 py-2.5 rounded-xl font-bold text-sm transition-colors whitespace-nowrap text-slate-500 hover:bg-slate-100 hover:text-slate-800">Ceba / Finalización</button>
-                    </div>
+                    </nav>
 
                     <div class="py-4 px-8 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center gap-5 w-full md:w-auto">
                         <div class="p-3 bg-emerald-100 rounded-xl">
@@ -185,11 +184,11 @@
                             <p class="text-3xl font-black text-slate-800" id="averageWeight">0 kg</p>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Tabla de Pesajes -->
+                
                 <section>
-                    <div class="bg-white rounded-[2rem] shadow-sm overflow-hidden p-2 border border-slate-100">
+                    <article class="bg-white rounded-[2rem] shadow-sm overflow-hidden p-2 border border-slate-100">
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
                                 <thead class="bg-slate-50 border-b border-slate-200">
@@ -201,18 +200,18 @@
                                     </tr>
                                 </thead>
                                 <tbody id="weightTable" class="divide-y divide-slate-100">
-                                    <!-- Renderizado desde script.js -->
+                                    
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </article>
                 </section>
 
-            </div>
-        </section>
+            </section>
+        </main>
     </div>
 
-    <!-- Modal Registro Pesaje -->
+    
     <div id="weightModal" class="modal fixed inset-0 z-[100] items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
         <form id="weightForm" class="w-full max-w-md p-8 rounded-[2.5rem] bg-white shadow-2xl relative border border-slate-100">
             <button type="button" id="btnCloseModal" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 font-bold bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center transition-colors">
@@ -263,7 +262,7 @@
         </form>
     </div>
 
-    <!-- Scripts -->
+    
     <script src="script.js"></script>
 </body>
 </html>

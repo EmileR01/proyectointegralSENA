@@ -1,7 +1,7 @@
 // Inicialización de Iconos Lucide
 lucide.createIcons();
 
-// Mock Data
+// Datos de Prueba
 const summaryStats = [
     { title: 'Hembras en Gestación', value: '42', icon: 'activity', tone: 'text-fuchsia-500', bg: 'bg-fuchsia-100' },
     { title: 'Próximos Partos (7d)', value: '8', icon: 'calendar-days', tone: 'text-pink-500', bg: 'bg-pink-100' },
@@ -15,12 +15,12 @@ let reproductionEvents = [
     { id: 4, hembra: 'H-089', fechaServicio: '2025-12-20', tipo: 'Monta Natural', fechaParto: '2026-04-12', estado: 'Lactante', diasGestacion: null }
 ];
 
-// Constants from Standards
+// Constantes de los Estándares
 const duracionPromedioDias = 114;
 const minEdadDias = 220; // 220 días para el primer servicio
 const ventanaAlertaMaternidadDias = 7;
 
-// DOM Elements
+// Elementos del DOM
 const summaryStatsGrid = document.getElementById('summaryStatsGrid');
 const reproductionTable = document.getElementById('reproductionTable');
 
@@ -64,7 +64,7 @@ function getBadgeStyle(estado) {
         case 'Lactante': return 'bg-emerald-100 text-emerald-700';
         case 'Descarte': return 'bg-rose-100 text-rose-700';
         case 'Servida': return 'bg-blue-100 text-blue-700';
-        default: return 'bg-slate-100 text-slate-600'; // Vacia, Destetada
+        default: return 'bg-slate-100 text-slate-600'; // Vacía, Destetada
     }
 }
 
@@ -130,7 +130,7 @@ btnOpenModal.addEventListener('click', openModal);
 btnCloseModal.addEventListener('click', closeModal);
 btnCancelModal.addEventListener('click', closeModal);
 
-// Event Listeners para cálculos automáticos en el form
+// Controladores de eventos para cálculos automáticos en el formulario
 formFechaServicio.addEventListener('change', (e) => {
     const value = e.target.value;
     if (value) {

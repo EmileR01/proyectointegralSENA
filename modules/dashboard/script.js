@@ -20,7 +20,7 @@ const recentActivity = [
     { id: 3, title: 'Alerta de peso bajo', meta: 'Ayer', area: 'Corral 09' }
 ];
 
-// 1. Render Stats Grid
+// 1. Renderizar Cuadrícula de Estadísticas
 const statsGrid = document.getElementById('statsGrid');
 
 stats.forEach(stat => {
@@ -41,7 +41,7 @@ stats.forEach(stat => {
     statsGrid.appendChild(card);
 });
 
-// Card Rendimiento Crecimiento
+// Tarjeta de Rendimiento de Crecimiento
 const rendimientoCard = document.createElement('div');
 rendimientoCard.className = 'p-6 rounded-[2rem] bg-white shadow-sm border border-slate-100';
 rendimientoCard.innerHTML = `
@@ -64,7 +64,7 @@ rendimientoCard.innerHTML = `
 `;
 statsGrid.appendChild(rendimientoCard);
 
-// Card Cumplimiento Sanitario
+// Tarjeta de Cumplimiento Sanitario
 const sanidadCard = document.createElement('div');
 sanidadCard.className = 'p-6 rounded-[2rem] bg-white shadow-sm border border-slate-100';
 sanidadCard.innerHTML = `
@@ -84,7 +84,7 @@ sanidadCard.innerHTML = `
 `;
 statsGrid.appendChild(sanidadCard);
 
-// 2. Render Quick Actions
+// 2. Renderizar Acciones Rápidas
 const quickActionsGrid = document.getElementById('quickActionsGrid');
 quickActions.forEach(action => {
     const btn = document.createElement('a');
@@ -94,7 +94,7 @@ quickActions.forEach(action => {
     quickActionsGrid.appendChild(btn);
 });
 
-// 3. Render Activity Table
+// 3. Renderizar Tabla de Actividad
 const activityTableBody = document.getElementById('activityTableBody');
 recentActivity.forEach(row => {
     const tr = document.createElement('tr');
@@ -106,7 +106,7 @@ recentActivity.forEach(row => {
     activityTableBody.appendChild(tr);
 });
 
-// 4. Render System Suggestion
+// 4. Renderizar Sugerencia del Sistema
 const suggestionCard = document.getElementById('systemSuggestionCard');
 
 // Simulando el caso por defecto de Sugerencia del Sistema

@@ -1,13 +1,13 @@
 // Inicialización de Iconos Lucide
 lucide.createIcons();
 
-// Mock Data de Registros
+// Datos de Prueba de Registros
 let healthRecords = [
     { id: 1, fecha: '2026-04-20', idCerdo: '2024-001', diagnostico: 'Control rutinario', tratamiento: 'Vacuna Parvovirus', responsable: 'Juan Pérez' },
     { id: 2, fecha: '2026-04-22', idCerdo: '2024-042', diagnostico: 'Diarrea leve', tratamiento: 'Rehidratación y antibiótico', responsable: 'María Gómez' }
 ];
 
-// Mock Data de Medicamentos
+// Datos de Prueba de Medicamentos
 const topMedicines = [
     { name: "Vacuna Parvovirus", dose: "2ml IM" },
     { name: "Rehidratación y antibiótico", dose: "5ml SC / 2ml IM" },
@@ -16,7 +16,7 @@ const topMedicines = [
     { name: "Amoxicilina L.A.", dose: "1ml/10kg IM" }
 ];
 
-// DOM Elements
+// Elementos del DOM
 const healthTable = document.getElementById('healthTable');
 const healthModal = document.getElementById('healthModal');
 const healthForm = document.getElementById('healthForm');
@@ -59,7 +59,7 @@ function initMedicines() {
     });
 }
 
-// Event Listeners
+// Controladores de Eventos
 formTratamiento.addEventListener('change', (e) => {
     const selectedName = e.target.value;
     const selectedMedicine = topMedicines.find(m => m.name === selectedName);
