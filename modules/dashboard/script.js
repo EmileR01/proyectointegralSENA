@@ -1,48 +1,127 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const datos = {
-        totalCerdos: 1500,
-        variacionTotal: 2.5,
-        enCrecimiento: 1200,
-        listosVenta: 300
-    };
+// Inicialización de Iconos Lucide
+lucide.createIcons();
 
-    const totalEl = document.getElementById('stat-total');
-    const totalVarEl = document.getElementById('stat-total-var');
-    const growthEl = document.getElementById('stat-growth');
-    const growthVarEl = document.getElementById('stat-growth-var');
-    const readyEl = document.getElementById('stat-ready');
-    const readyVarEl = document.getElementById('stat-ready-var');
-    const barTotal = document.getElementById('bar-total');
-    const barGrowth = document.getElementById('bar-growth');
-    const barReady = document.getElementById('bar-ready');
+const stats = [
+    { title: 'Total de cerdos', value: '1500', detail: '+2.5%', width: 'w-[88%]', tone: 'bg-emerald-500' },
+    { title: 'Cerdos en crecimiento', value: '1200', detail: '80% del total', width: 'w-[80%]', tone: 'bg-sky-500' },
+    { title: 'Listos para venta', value: '300', detail: '20% del total', width: 'w-[35%]', tone: 'bg-amber-400' }
+];
 
-    if (!totalEl || !totalVarEl || !growthEl || !growthVarEl || !readyEl || !readyVarEl) {
-        return;
-    }
+const quickActions = [
+    { label: 'Registrar nuevo cerdo', path: '../registro-peso/index.html' },
+    { label: 'Ver inventario', path: '../reportes/index.html' },
+    { label: 'Registrar alimentacion', path: '../alimentacion/index.html' },
+    { label: 'Ver reportes de salud', path: '../vacunacion/index.html' }
+];
 
-    const total = Math.max(0, datos.totalCerdos);
-    const crecimiento = Math.max(0, datos.enCrecimiento);
-    const listos = Math.max(0, datos.listosVenta);
+const recentActivity = [
+    { id: 1, title: 'Nuevo lote registrado', meta: 'Hace 2 horas', area: 'Sector B-04' },
+    { id: 2, title: 'Vacunacion completada', meta: 'Hace 5 horas', area: 'Sector A-12' },
+    { id: 3, title: 'Alerta de peso bajo', meta: 'Ayer', area: 'Corral 09' }
+];
 
-    const porcentajeCrecimiento = total > 0 ? Math.round((crecimiento / total) * 100) : 0;
-    const porcentajeListos = total > 0 ? Math.round((listos / total) * 100) : 0;
+// 1. Render Stats Grid
+const statsGrid = document.getElementById('statsGrid');
 
-    totalEl.textContent = total;
-    totalVarEl.textContent = `${datos.variacionTotal > 0 ? '+' : ''}${datos.variacionTotal}%`;
-    growthEl.textContent = crecimiento;
-    growthVarEl.textContent = `${porcentajeCrecimiento}% del total`;
-    readyEl.textContent = listos;
-    readyVarEl.textContent = `${porcentajeListos}% del total`;
-
-    if (barTotal) {
-        barTotal.style.setProperty('--fill', '75%');
-    }
-
-    if (barGrowth) {
-        barGrowth.style.setProperty('--fill', `${porcentajeCrecimiento}%`);
-    }
-
-    if (barReady) {
-        barReady.style.setProperty('--fill', `${porcentajeListos}%`);
-    }
+stats.forEach(stat => {
+    const card = document.createElement('div');
+    card.className = 'p-6 rounded-[2rem] bg-white shadow-sm border border-slate-100 flex flex-col justify-between';
+    card.innerHTML = `
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">${stat.title}</p>
+        <div class="mt-4 flex items-end justify-between gap-4">
+            <p class="text-4xl font-black text-slate-950">${stat.value}</p>
+            <span class="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-600">
+                ${stat.detail}
+            </span>
+        </div>
+        <div class="mt-5 h-3 rounded-full bg-slate-100">
+            <div class="h-3 rounded-full ${stat.tone} ${stat.width}"></div>
+        </div>
+    `;
+    statsGrid.appendChild(card);
 });
+
+// Card Rendimiento Crecimiento
+const rendimientoCard = document.createElement('div');
+rendimientoCard.className = 'p-6 rounded-[2rem] bg-white shadow-sm border border-slate-100';
+rendimientoCard.innerHTML = `
+    <div class="flex items-start justify-between">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Rendimiento Crecimiento</p>
+        <div class="rounded-xl bg-blue-100 p-2 text-blue-600">
+            <i data-lucide="trending-up" class="w-5 h-5"></i>
+        </div>
+    </div>
+    <div class="mt-2 flex items-end justify-between gap-4">
+        <p class="text-4xl font-black text-slate-950">820<span class="text-lg text-slate-500 font-bold">g/d</span></p>
+        <span class="rounded-full bg-emerald-100 px-3 py-1 text-sm font-semibold text-emerald-700">Óptimo</span>
+    </div>
+    <div class="mt-4 h-10 w-full relative overflow-hidden rounded-lg">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polyline points="0,80 33,60 66,35 100,5" fill="none" stroke="#10b981" stroke-width="4" stroke-dasharray="8 8" class="opacity-50" />
+            <polyline points="0,90 33,70 66,45 100,10" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </div>
+`;
+statsGrid.appendChild(rendimientoCard);
+
+// Card Cumplimiento Sanitario
+const sanidadCard = document.createElement('div');
+sanidadCard.className = 'p-6 rounded-[2rem] bg-white shadow-sm border border-slate-100';
+sanidadCard.innerHTML = `
+    <div class="flex items-start justify-between">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Cumplimiento Sanitario</p>
+        <div class="rounded-xl bg-emerald-100 p-2 text-emerald-500">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+        </div>
+    </div>
+    <div class="mt-2 flex items-end justify-between gap-4">
+        <p class="text-4xl font-black text-slate-950">85%</p>
+        <span class="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-600">ICA</span>
+    </div>
+    <div class="mt-5 h-3 rounded-full bg-slate-100">
+        <div class="h-3 w-[85%] rounded-full bg-emerald-500"></div>
+    </div>
+`;
+statsGrid.appendChild(sanidadCard);
+
+// 2. Render Quick Actions
+const quickActionsGrid = document.getElementById('quickActionsGrid');
+quickActions.forEach(action => {
+    const btn = document.createElement('a');
+    btn.href = action.path;
+    btn.className = 'px-4 py-3 rounded-xl bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors flex items-center justify-start text-left hover:scale-[1.02]';
+    btn.textContent = action.label;
+    quickActionsGrid.appendChild(btn);
+});
+
+// 3. Render Activity Table
+const activityTableBody = document.getElementById('activityTableBody');
+recentActivity.forEach(row => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+        <td class="px-6 py-4 whitespace-nowrap font-bold text-slate-800">${row.title}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-slate-500 font-medium">${row.meta}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-slate-500 font-medium">${row.area}</td>
+    `;
+    activityTableBody.appendChild(tr);
+});
+
+// 4. Render System Suggestion
+const suggestionCard = document.getElementById('systemSuggestionCard');
+
+// Simulando el caso por defecto de Sugerencia del Sistema
+suggestionCard.innerHTML = `
+    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-300">
+        Sugerencia del sistema
+    </p>
+    <h3 class="mt-4 text-3xl font-black">Optimiza el feed del Lote #42</h3>
+    <p class="mt-4 leading-7 text-slate-300">
+        Basado en el crecimiento actual, conviene ajustar la racion para mejorar conversion y reducir desperdicio en la siguiente semana.
+    </p>
+    <a href="../alimentacion/index.html" class="inline-block mt-8 px-6 py-3 rounded-xl bg-slate-800 text-white font-bold hover:bg-slate-700 transition">
+        Ver detalles
+    </a>
+`;
+
+// Renderizar nuevos íconos
+lucide.createIcons();

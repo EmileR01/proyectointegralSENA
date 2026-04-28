@@ -1,109 +1,176 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gestión de Alimentación</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Alimentación - SIGEP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sena-green': '#39A900',
+                        'sena-blue': '#00324D',
+                        'sena-yellow': '#FFC000',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .modal {
+            display: none;
+        }
+        .modal.active {
+            display: flex;
+        }
+    </style>
 </head>
-
-<body>
-    <div class="app">
-
-        <aside class="sidebar">
-            <div class="logo">
-                <div class="logo-circulo">
-                    <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA">
+<body class="bg-slate-100 text-slate-900 font-sans min-h-screen">
+    <div class="mx-auto flex min-h-screen w-full flex-col xl:flex-row">
+        
+        <!-- Sidebar -->
+        <aside class="w-full bg-slate-950 px-6 py-8 text-white xl:min-h-screen xl:w-80 xl:px-8">
+            <div class="flex items-center gap-3">
+                <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA" class="h-10 w-auto" />
+                <div>
+                    <p class="text-2xl font-black tracking-tight text-white">
+                        Porci<span class="text-sena-green font-black">Tech</span>
+                    </p>
                 </div>
-                <h2>Sistema Integral de<br />Gestión Porcina</h2>
             </div>
 
-            <nav>
-                <a href="../dashboard/index.html">Inicio</a>
-                <a class="activo" href="../alimentacion/index.html">Alimentación</a>
-                <a href="../registro-peso/index.html">Registro de Peso</a>
-                <a href="../reproduccion/index.html">Reproducción</a>
-                <a href="../reportes/index.html">Inventario y Ventas</a>
-                <a href="../vacunacion/index.html">Vacunación</a>
-                <a href="../reportes/index.html">Alertas y Reportes</a>
-                <a href="../configuracion-usuarios/index.html">Configuración Usuarios</a>
+            <nav class="mt-8 grid gap-2">
+                <a href="../dashboard/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Dashboard</a>
+                <a href="../alimentacion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-emerald-400 text-slate-950">Alimentación</a>
+                <a href="../registro-peso/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Registro de Peso</a>
+                <a href="../reproduccion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Reproducción</a>
+                <a href="../vacunacion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Salud y Vacunación</a>
+                <a href="../reportes/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Alertas y Reportes</a>
+                <a href="../configuracion-usuarios/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Configuración</a>
             </nav>
+
+            <a href="../../index.html" class="mt-8 block rounded-xl px-4 py-3 text-center text-sm font-bold text-slate-300 border border-slate-700 transition hover:bg-white/5">
+                Volver a la landing
+            </a>
         </aside>
 
-        <main class="main">
-            <header class="title">
-                <h1>Gestión de Alimentación</h1>
-                <p>Registra y Consulta el historial de alimentación de los porcinos</p>
-            </header>
-
-            <section class="card">
-                <h3>Registrar Nuevo Consumo</h3>
-
-                <form class="form" onsubmit="event.preventDefault();">
+        <!-- Main Content -->
+        <section class="flex-1 px-6 py-8 lg:px-10 overflow-y-auto">
+            
+            <div class="space-y-8 max-w-[1600px] mx-auto pb-10">
+                <!-- Cabecera -->
+                <header class="flex flex-col gap-4 p-8 rounded-[2rem] bg-white shadow-sm lg:flex-row lg:items-center lg:justify-between border-t-4 border-t-orange-500">
                     <div>
-                        <label for="tipo">Tipo de Alimento</label>
-                        <select id="tipo" class="field">
-                            <option selected disabled>Seleccionar Tipo</option>
-                            <option>Concentrado</option>
-                            <option>Maíz</option>
-                            <option>Suplemento</option>
-                            <option>Otro</option>
-                        </select>
+                        <h2 class="text-3xl font-black text-slate-900 flex items-center gap-3">
+                            <i data-lucide="utensils" class="text-orange-500 w-8 h-8"></i>
+                            Control de Alimentación
+                        </h2>
+                        <p class="text-slate-500 mt-2 font-medium">Gestión de inventario y consumo diario del plantel.</p>
                     </div>
+                    <button id="btnOpenModal" class="px-4 py-2 flex items-center gap-2 font-bold rounded-xl bg-orange-500 hover:bg-orange-600 shadow-md shadow-orange-500/30 text-white transition border-none">
+                        <i data-lucide="plus" class="w-5 h-5"></i>
+                        Registrar Suministro
+                    </button>
+                </header>
 
-                    <div class="row-2">
-                        <div>
-                            <label for="kg">Cantidad en (Kg)</label>
-                            <input id="kg" type="number" min="0" step="0.01" class="field" placeholder="" />
+                <!-- Dashboard de Inventario -->
+                <section>
+                    <h3 class="text-xl font-bold mb-6 text-slate-800 flex items-center gap-2">
+                        <i data-lucide="database" class="text-blue-500 w-6 h-6"></i>
+                        Inventario de Silos
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6" id="inventoryGrid">
+                        <!-- Generado desde script.js -->
+                    </div>
+                </section>
+
+                <!-- Tabla de Consumo Diario -->
+                <section>
+                    <h3 class="text-xl font-bold mb-6 text-slate-800 flex items-center gap-2">
+                        <i data-lucide="trending-down" class="text-orange-500 w-6 h-6"></i>
+                        Consumo Diario
+                    </h3>
+                    <div class="bg-white rounded-[2rem] shadow-sm overflow-hidden p-2 border border-slate-100">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead class="bg-slate-50 border-b border-slate-200">
+                                    <tr>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Fecha</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Tipo de Alimento</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Cantidad (kg)</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Lote/Animal destinado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="consumptionTable" class="divide-y divide-slate-100">
+                                    <!-- Generado desde script.js -->
+                                </tbody>
+                            </table>
                         </div>
-
-                        <div>
-                            <label for="agua">Consumo de Agua (litros)</label>
-                            <input id="agua" type="number" min="0" step="0.01" class="field" placeholder="" />
-                        </div>
                     </div>
+                </section>
 
-                    <div class="actions">
-                        <button class="btn" type="submit">Registrar</button>
-                    </div>
-                </form>
-            </section>
-
-            <h2 class="section-title">Historial de Registro</h2>
-
-            <section class="card table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 18%;">Fecha</th>
-                            <th style="width: 32%;">Tipo de Alimento</th>
-                            <th style="width: 25%;">Cantidad (Kg)</th>
-                            <th style="width: 25%;">Agua (litros)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Filas de ejemplo (borra si no quieres) -->
-                        <!--
-            <tr>
-              <td>2026-02-03</td>
-              <td>Concentrado</td>
-              <td>12</td>
-              <td>18</td>
-            </tr>
-            -->
-                        <tr class="empty">
-                            <td colspan="4"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-        </main>
+            </div>
+        </section>
     </div>
+
+    <!-- Modal Nuevo Suministro -->
+    <div id="supplyModal" class="modal fixed inset-0 z-[100] items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+        <form id="supplyForm" class="w-full max-w-md p-8 rounded-[2.5rem] bg-white shadow-2xl relative border border-slate-100">
+            <button type="button" id="btnCloseModal" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 font-bold bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center transition-colors">
+                ✕
+            </button>
+            <h2 class="text-2xl font-black mb-6 text-slate-900">Nuevo Suministro</h2>
+            
+            <div class="space-y-4">
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Fecha</label>
+                    <input type="date" id="formDate" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
+                </div>
+                
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Tipo de Alimento</label>
+                    <div class="relative">
+                        <select id="formType" required class="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 outline-none font-medium text-slate-700 focus:ring-2 focus:ring-orange-500 appearance-none transition">
+                            <option value="" disabled selected>Seleccionar...</option>
+                            <option value="Pre-iniciador">Pre-iniciador</option>
+                            <option value="Iniciador">Iniciador</option>
+                            <option value="Levante">Levante</option>
+                            <option value="Ceba">Ceba</option>
+                        </select>
+                        <div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-xs">▼</div>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Cantidad (kg)</label>
+                    <input type="number" id="formAmount" min="1" placeholder="Ej: 50" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
+                </div>
+
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Destino (Lote/Animal)</label>
+                    <input type="text" id="formTarget" placeholder="Ej: Lote #42" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
+                </div>
+            </div>
+
+            <div class="flex gap-4 mt-8">
+                <button type="button" id="btnCancelModal" class="flex-1 py-2.5 font-bold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+                    Cancelar
+                </button>
+                <button type="submit" class="flex-1 py-2.5 font-black bg-orange-500 hover:bg-orange-600 text-white rounded-xl shadow-md shadow-orange-500/30 transition border-none">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>

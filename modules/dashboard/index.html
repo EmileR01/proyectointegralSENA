@@ -3,118 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard General</title>
+    <title>Dashboard General - SIGEP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sena-green': '#39A900',
+                        'sena-blue': '#00324D',
+                        'sena-yellow': '#FFC000',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- CSS propio -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="app">
-        <aside class="sidebar">
-            <div class="logo">
-                <div class="logo-circulo">
-                    <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA">
+<body class="bg-slate-100 text-slate-900 font-sans min-h-screen">
+    <div class="mx-auto flex min-h-screen w-full flex-col xl:flex-row">
+        
+        <!-- Sidebar -->
+        <aside class="w-full bg-slate-950 px-6 py-8 text-white xl:min-h-screen xl:w-80 xl:px-8">
+            <div class="flex items-center gap-3">
+                <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA" class="h-10 w-auto" />
+                <div>
+                    <p class="text-2xl font-black tracking-tight text-white">
+                        Porci<span class="text-sena-green font-black">Tech</span>
+                    </p>
                 </div>
-                <h2>Sistema Integral de<br>Gestión Porcina</h2>
             </div>
 
-            <nav>
-                <a class="activo" href="../dashboard/index.html">Inicio</a>
-                <a href="../alimentacion/index.html">Alimentación</a>
-                <a href="../registro-peso/index.html">Registro de Peso</a>
-                <a href="../reproduccion/index.html">Reproducción</a>
-                <a href="../reportes/index.html">Inventario y Ventas</a>
-                <a href="../vacunacion/index.html">Vacunación</a>
-                <a href="../reportes/index.html">Alertas y Reportes</a>
-                <a href="../configuracion-usuarios/index.html">Configuración Usuarios</a>
+            <nav class="mt-8 grid gap-2">
+                <a href="../dashboard/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-emerald-400 text-slate-950">Dashboard</a>
+                <a href="../alimentacion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Alimentación</a>
+                <a href="../registro-peso/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Registro de Peso</a>
+                <a href="../reproduccion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Reproducción</a>
+                <a href="../vacunacion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Salud y Vacunación</a>
+                <a href="../reportes/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Alertas y Reportes</a>
+                <a href="../configuracion-usuarios/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Configuración</a>
             </nav>
+
+            <a href="../../index.html" class="mt-8 block rounded-xl px-4 py-3 text-center text-sm font-bold text-slate-300 border border-slate-700 transition hover:bg-white/5">
+                Volver a la landing
+            </a>
         </aside>
 
-        <main class="content">
-            <section class="hero">
-                <h1>Dashboard General</h1>
-                <div class="section-label">
-                    <span class="badge">i</span>
-                    <h2>Resumen de Informacion Clave</h2>
-                </div>
-                <div class="stats">
-                    <article class="stat-card">
-                        <p class="stat-title">TOTAL DE CERDOS</p>
-                        <div class="stat-value">
-                            <span class="number" id="stat-total">1500</span>
-                            <span class="chip up" id="stat-total-var">+2.5%</span>
-                        </div>
-                        <div class="bar green" id="bar-total"></div>
-                    </article>
-                    <article class="stat-card">
-                        <p class="stat-title">CERDOS EN CRECIMIENTO</p>
-                        <div class="stat-value">
-                            <span class="number" id="stat-growth">1200</span>
-                            <span class="chip neutral" id="stat-growth-var">80% del total</span>
-                        </div>
-                        <div class="bar blue" id="bar-growth"></div>
-                    </article>
-                    <article class="stat-card">
-                        <p class="stat-title">CERDOS LISTOS PARA VENTA</p>
-                        <div class="stat-value">
-                            <span class="number" id="stat-ready">300</span>
-                            <span class="chip neutral" id="stat-ready-var">20% del total</span>
-                        </div>
-                        <div class="bar orange" id="bar-ready"></div>
-                    </article>
-                </div>
-            </section>
-
-            <section class="quick-access">
-                <div class="section-label">
-                    <span class="badge">⚡</span>
-                    <h2>Accesos Rapidos</h2>
-                </div>
-                <div class="quick-grid">
-                    <button class="quick-btn"><a href="../registro-peso/index.html">Registrar nuevo cerdo</a></button>
-                    <button class="quick-btn"><a href="../reportes/index.html">Ver inventario</a></button>
-                    <button class="quick-btn"><a href="../alimentacion/index.html">Registrar alimentacion</a></button>
-                    <button class="quick-btn"><a href="../reportes/index.html">Ver reportes de salud</a></button>
-                </div>
-            </section>
-
-            <section class="panels">
-                <article class="panel">
-                    <h3>Actividad Reciente</h3>
-                    <ul class="activity">
-                        <li>
-                            <span class="bullet green"></span>
-                            <div>
-                                <p class="activity-title">Nuevo lote registrado</p>
-                                <p class="activity-meta">Hace 2 horas - Sector B-04</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="bullet blue"></span>
-                            <div>
-                                <p class="activity-title">Vacunacion completada</p>
-                                <p class="activity-meta">Hace 5 horas - Sector A-12</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="bullet orange"></span>
-                            <div>
-                                <p class="activity-title">Alerta de peso bajo</p>
-                                <p class="activity-meta">Ayer - Corral 09</p>
-                            </div>
-                        </li>
-                    </ul>
-                </article>
-
-                <article class="panel">
-                    <h3>Optimizacion de Feed</h3>
-                    <p class="panel-text">
-                        Basado en el crecimiento actual, se sugiere ajustar la
-                        racion del Lote #42.
+        <!-- Main Content -->
+        <section class="flex-1 px-6 py-8 lg:px-10 overflow-y-auto">
+            
+            <!-- Header Dashboard -->
+            <header class="flex flex-col gap-4 mb-8 p-6 rounded-[2rem] bg-white shadow-sm lg:flex-row lg:items-end lg:justify-between border border-slate-100">
+                <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700">
+                        Dashboard general
                     </p>
-                    <a class="panel-link" href="../reportes/index.html">Ver detalles →</a>
-                </article>
+                    <h1 class="mt-3 text-4xl font-black tracking-tight text-slate-950">
+                        Resumen de informacion clave
+                    </h1>
+                </div>
+                <div class="rounded-2xl bg-slate-950 px-5 py-4 text-white">
+                    <p class="text-sm text-slate-400">Lote destacado</p>
+                    <p class="mt-1 text-xl font-black">Lote #42</p>
+                </div>
+            </header>
+
+            <!-- Stats Grid -->
+            <section class="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5" id="statsGrid">
+                <!-- Rellenado dinámicamente desde script.js -->
             </section>
-        </main>
+
+            <!-- Quick Actions -->
+            <div class="p-6 mt-6 rounded-[2rem] bg-white shadow-sm border border-slate-100">
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-100 text-lg font-bold text-amber-700">
+                        ⚡
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">
+                            Accesos rapidos
+                        </p>
+                        <h2 class="text-2xl font-black text-slate-950">Acciones frecuentes</h2>
+                    </div>
+                </div>
+
+                <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4" id="quickActionsGrid">
+                    <!-- Rellenado dinámicamente desde script.js -->
+                </div>
+            </div>
+
+            <!-- Recent Activity & Suggestions -->
+            <section class="mt-6 grid gap-6 2xl:grid-cols-[1.2fr_0.8fr]">
+                
+                <!-- Recent Activity Table -->
+                <div class="p-6 rounded-[2rem] bg-white shadow-sm border border-slate-100">
+                    <h3 class="text-2xl font-black text-slate-950">Actividad reciente</h3>
+                    <div class="mt-6 overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead class="bg-slate-50 border-b border-slate-200">
+                                <tr>
+                                    <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Actividad</th>
+                                    <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Momento</th>
+                                    <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Ubicación</th>
+                                </tr>
+                            </thead>
+                            <tbody id="activityTableBody" class="divide-y divide-slate-100">
+                                <!-- Rellenado dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- System Suggestion -->
+                <div class="p-6 rounded-[2rem] bg-slate-950 text-white shadow-xl shadow-slate-300/20" id="systemSuggestionCard">
+                    <!-- Rellenado dinámicamente (Sugerencia normal, alerta, etc) -->
+                </div>
+
+            </section>
+
+        </section>
     </div>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>

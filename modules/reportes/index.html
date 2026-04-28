@@ -1,243 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Reportes y Análisis</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-
-    <body>
-        <aside class="sidebar">
-            <div class="logo">
-                <div class="logo-circulo">
-                    <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alertas y Reportes - SIGEP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sena-green': '#39A900',
+                        'sena-blue': '#00324D',
+                        'sena-yellow': '#FFC000',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-100 text-slate-900 font-sans min-h-screen">
+    <div class="mx-auto flex min-h-screen w-full flex-col xl:flex-row">
+        
+        <!-- Sidebar -->
+        <aside class="w-full bg-slate-950 px-6 py-8 text-white xl:min-h-screen xl:w-80 xl:px-8 shrink-0">
+            <div class="flex items-center gap-3">
+                <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA" class="h-10 w-auto" />
+                <div>
+                    <p class="text-2xl font-black tracking-tight text-white">
+                        Porci<span class="text-sena-green font-black">Tech</span>
+                    </p>
                 </div>
-                <h2>Sistema Integral de<br>Gestión Porcina</h2>
             </div>
-            <nav>
-                <a href="../dashboard/index.html">Inicio</a>
-                <a href="../alimentacion/index.html">Alimentación</a>
-                <a href="../registro-peso/index.html">Registro de Peso</a>
-                <a href="../reproduccion/index.html">Reproducción</a>
-                <a href="../reportes/index.html">Inventario y Ventas</a>
-                <a href="../vacunacion/index.html">Vacunación</a>
-                <a class="activo" href="../reportes/index.html">Alertas y Reportes</a>
-                <a href="../configuracion-usuarios/index.html">Configuración Usuarios</a>
+
+            <nav class="mt-8 grid gap-2">
+                <a href="../dashboard/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Dashboard</a>
+                <a href="../alimentacion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Alimentación</a>
+                <a href="../registro-peso/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Registro de Peso</a>
+                <a href="../reproduccion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Reproducción</a>
+                <a href="../vacunacion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Salud y Vacunación</a>
+                <a href="../reportes/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-emerald-400 text-slate-950">Alertas y Reportes</a>
+                <a href="../configuracion-usuarios/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Configuración</a>
             </nav>
+
+            <a href="../../index.html" class="mt-8 block rounded-xl px-4 py-3 text-center text-sm font-bold text-slate-300 border border-slate-700 transition hover:bg-white/5">
+                Volver a la landing
+            </a>
         </aside>
 
-        <div class="contenido">
-            <!-- Topbar -->
-            <header class="topbar">
-                <div class="topbar__left">
-                    <div class="brand">
-                        <div class="brand__logo" aria-label="Logo">
-                            <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA" />
-                        </div>
-                        <div class="brand__text">
-                            <div class="brand__title">Sistema Integral de</div>
-                            <div class="brand__title">Gestión Porcina</div>
-                        </div>
+        <!-- Main Content -->
+        <section class="flex-1 px-6 py-8 lg:px-10 overflow-y-auto w-full">
+            
+            <div class="space-y-8 max-w-7xl mx-auto pb-10">
+                
+                <!-- Header del Módulo -->
+                <div class="flex flex-col gap-4 sm:flex-row sm:justify-between items-start sm:items-center bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100">
+                    <div>
+                        <h2 class="text-3xl font-black italic text-slate-900 flex items-center gap-3">
+                            <i data-lucide="bar-chart-2" class="text-indigo-600 h-8 w-8"></i>
+                            Alertas y Reportes
+                        </h2>
+                        <p class="text-slate-500 mt-1 font-medium">Centro de control y análisis de rendimiento de la granja</p>
                     </div>
-                </div>
-
-                <div class="topbar__right">
-                    <button class="avatar" aria-label="Perfil">
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path
-                                d="M12 12a4.2 4.2 0 1 0-4.2-4.2A4.2 4.2 0 0 0 12 12Z"
-                                stroke="rgba(0,0,0,.55)" stroke-width="2" />
-                            <path d="M4.5 20.2c1.6-4 13.4-4 15 0"
-                                stroke="rgba(0,0,0,.55)" stroke-width="2"
-                                stroke-linecap="round" />
-                        </svg>
+                    <button class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md shadow-indigo-500/20 transition-colors border-none">
+                        Exportar PDF
                     </button>
                 </div>
-            </header>
 
-            <!-- Page -->
-            <main class="page">
-            <h1 class="page__title">Reportes y Análisis</h1>
-            <p class="page__subtitle">Informacion detallada sobre el rendimiento
-                de la granja porcina</p>
+                <!-- Notificaciones Recientes -->
+                <section>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="bell" class="text-slate-400 h-5 w-5"></i>
+                        <h3 class="text-lg font-black italic text-slate-800">Notificaciones Recientes</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="alertsGrid">
+                        <!-- Generado por script.js -->
+                    </div>
+                </section>
 
-            <!-- Tabs -->
-            <div class="tabs" role="tablist" aria-label="Secciones de reportes">
-                <button class="tab tab--active" role="tab"
-                    aria-selected="true">Productividad</button>
-                <button class="tab" role="tab"
-                    aria-selected="false">Salud</button>
-                <button class="tab" role="tab"
-                    aria-selected="false">Reproduccion</button>
-                <button class="tab" role="tab"
-                    aria-selected="false">Ventas</button>
+                <!-- Panel de Métricas (Grid 2 columnas) -->
+                <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Gráfica de Crecimiento -->
+                    <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="text-xl font-black italic text-slate-800 flex items-center gap-2">
+                                    <i data-lucide="trending-up" class="text-blue-500 h-6 w-6"></i>
+                                    Crecimiento Global
+                                </h3>
+                                <span class="text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1 rounded-lg">Últimos 6 meses</span>
+                            </div>
+                            <!-- Gráfica de Líneas -->
+                            <div class="h-64 w-full relative">
+                                <!-- Grids -->
+                                <div class="absolute inset-0 flex flex-col justify-between">
+                                    <div class="border-t border-slate-100 w-full h-0"></div>
+                                    <div class="border-t border-slate-100 w-full h-0"></div>
+                                    <div class="border-t border-slate-100 w-full h-0"></div>
+                                    <div class="border-t border-slate-100 w-full h-0"></div>
+                                    <div class="border-t border-slate-100 w-full h-0"></div>
+                                </div>
+                                <svg class="w-full h-full relative z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <polyline points="0,80 20,65 40,55 60,35 80,25 100,10" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                    <polyline points="0,85 20,70 40,60 60,45 80,30 100,20" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" class="opacity-50" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 mt-4 justify-center text-sm font-bold text-slate-500">
+                            <span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-blue-500"></div> Real</span>
+                            <span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-emerald-500 opacity-50"></div> Ideal</span>
+                        </div>
+                    </div>
+
+                    <!-- Distribución de Lotes -->
+                    <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="text-xl font-black italic text-slate-800 flex items-center gap-2">
+                                    <i data-lucide="pie-chart" class="text-fuchsia-500 h-6 w-6"></i>
+                                    Distribución del Inventario
+                                </h3>
+                            </div>
+                            <!-- Gráfica Circular (Donut) -->
+                            <div class="flex justify-center items-center h-64">
+                                <div class="relative w-48 h-48">
+                                    <svg viewBox="0 0 100 100" class="transform -rotate-90 w-full h-full">
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="20" />
+                                        <!-- Segmento Ceba (45%) -->
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#10b981" stroke-width="20" stroke-dasharray="251.2" stroke-dashoffset="138.16" />
+                                        <!-- Segmento Levante (30%) -->
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#f59e0b" stroke-width="20" stroke-dasharray="251.2" stroke-dashoffset="175.84" class="origin-center rotate-[162deg]" />
+                                        <!-- Segmento Precebo (15%) -->
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#3b82f6" stroke-width="20" stroke-dasharray="251.2" stroke-dashoffset="213.52" class="origin-center rotate-[270deg]" />
+                                        <!-- Segmento Lactancia (10%) -->
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#8b5cf6" stroke-width="20" stroke-dasharray="251.2" stroke-dashoffset="226.08" class="origin-center rotate-[324deg]" />
+                                    </svg>
+                                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                        <span class="text-3xl font-black text-slate-900">1.5k</span>
+                                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Cerdos</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4 text-sm font-bold text-slate-600">
+                            <div class="flex items-center gap-2"><div class="w-3 h-3 shrink-0 rounded-full bg-emerald-500"></div> Ceba (45%)</div>
+                            <div class="flex items-center gap-2"><div class="w-3 h-3 shrink-0 rounded-full bg-amber-500"></div> Levante (30%)</div>
+                            <div class="flex items-center gap-2"><div class="w-3 h-3 shrink-0 rounded-full bg-blue-500"></div> Pre-cebo (15%)</div>
+                            <div class="flex items-center gap-2"><div class="w-3 h-3 shrink-0 rounded-full bg-purple-500"></div> Lactancia (10%)</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tabla de Resumen -->
+                <section>
+                    <h3 class="text-xl font-black italic text-slate-800 mb-4 px-2">KPIs del Mes</h3>
+                    <div class="bg-white rounded-[2rem] shadow-sm overflow-hidden border border-slate-100 p-2">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead class="bg-slate-50 border-b border-slate-200">
+                                    <tr>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Métrica Clave</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Valor Actual</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Objetivo</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Variación</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="kpiTable" class="divide-y divide-slate-100">
+                                    <!-- Renderizado desde script.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
             </div>
+        </section>
+    </div>
 
-            <!-- Top cards -->
-            <section class="grid grid--2">
-                <article class="card">
-                    <div class="card__head">
-                        <h3 class="card__title">Tendencia General de
-                            Productividad</h3>
-                    </div>
-
-                    <div class="metric">
-                        <div class="metric__value">+15%</div>
-                        <div class="metric__note">Ultimos 3 meses</div>
-                    </div>
-
-                    <!-- Sparkline -->
-                    <div class="chart chart--spark">
-                        <svg viewBox="0 0 560 160" preserveAspectRatio="none"
-                            aria-hidden="true">
-                            <path class="spark"
-                                d="M0,120
-                 C20,60 45,40 70,55
-                 C90,65 95,95 115,90
-                 C135,85 135,25 155,35
-                 C175,45 170,90 195,85
-                 C220,80 220,75 245,78
-                 C270,81 275,95 300,92
-                 C325,89 330,70 355,74
-                 C380,78 395,35 420,38
-                 C445,41 455,70 480,78
-                 C505,86 505,20 530,25
-                 C545,28 552,110 560,120" />
-                        </svg>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__head">
-                        <h3 class="card__title">Productividad por Lote</h3>
-                    </div>
-
-                    <div class="metric metric--tight">
-                        <div class="metric__value">120 cerdos</div>
-                        <div class="metric__note">Lote Actual (-10%)</div>
-                    </div>
-
-                    <div class="lot-axis">
-                        <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span>
-                    </div>
-
-                    <div class="lot-blank" aria-hidden="true"></div>
-                </article>
-            </section>
-
-            <!-- Alerts -->
-            <section class="section">
-                <h2 class="section__title">Alertas con IA</h2>
-
-                <div class="alerts">
-                    <div class="alert">
-                        <div class="alert__icon alert__icon--warn"
-                            aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M12 3 2.8 20h18.4L12 3Z"
-                                    stroke="currentColor" stroke-width="2" />
-                                <path d="M12 9v5" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" />
-                                <circle cx="12" cy="17" r="1.2"
-                                    fill="currentColor" />
-                            </svg>
-                        </div>
-                        <div class="alert__body">
-                            <div class="alert__title">Alerta de Salud</div>
-                            <div class="alert__text">Posible problema de salud
-                                detectado en el Lote C Monitorear de cerca los
-                                sintomas</div>
-                        </div>
-                    </div>
-
-                    <div class="alert">
-                        <div class="alert__icon alert__icon--growth"
-                            aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M4 19V5" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" />
-                                <path d="M8 19v-6" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" />
-                                <path d="M12 19v-9" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" />
-                                <path d="M16 19v-12" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" />
-                                <path d="M20 8l-4 2-4-3-4 2"
-                                    stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="alert__body">
-                            <div class="alert__title">Alerta de
-                                Crecimiento</div>
-                            <div class="alert__text">La tasa de crecimiento en
-                                el Lote D esta por debajo del promedio. Revisar
-                                el plan de alimentacion</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Predictions -->
-            <section class="section">
-                <h2 class="section__title">Predicciones</h2>
-
-                <div class="grid grid--2 grid--pred">
-                    <article class="card card--soft">
-                        <div class="kicker">TASA DE CRECIMIENTO PREVISTA</div>
-
-                        <div class="metric metric--big">
-                            <div class="metric__value">+ 10%</div>
-                            <div
-                                class="metric__note metric__note--green">Proximo
-                                3 meses</div>
-                        </div>
-
-                        <div class="chart chart--dashed">
-                            <svg viewBox="0 0 560 180"
-                                preserveAspectRatio="none" aria-hidden="true">
-                                <path class="dash"
-                                    d="M0,90
-                   C40,140 70,60 110,95
-                   C150,130 180,40 220,88
-                   C260,140 300,55 340,92
-                   C380,135 410,30 450,60
-                   C490,95 520,170 560,120" />
-                            </svg>
-                        </div>
-                    </article>
-
-                    <article class="card card--soft">
-                        <div class="kicker">RENTABILIDAD PREVISTA</div>
-
-                        <div class="metric metric--big">
-                            <div class="metric__value">$ 5,000</div>
-                            <div
-                                class="metric__note metric__note--green">Proximo
-                                6 meses (+5%)</div>
-                        </div>
-
-                        <div class="months">
-                            <span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span><span
-                                class="months__active">M7</span>
-                        </div>
-
-                        <div class="profit-line" aria-hidden="true">
-                            <span class="profit-line__dash"></span>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-        </main>
-        </div>
-        <script src="script.js"></script>
-    </body>
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
 </html>

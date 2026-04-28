@@ -1,191 +1,106 @@
-const contenedor = document.getElementById("contenedorVacunas");
-const modal = document.getElementById("modal");
+// Inicialización de Iconos Lucide
+lucide.createIcons();
 
-const nombre = document.getElementById("nombre");
-const porcino = document.getElementById("porcino");
-const fecha = document.getElementById("fecha");
-const dosis = document.getElementById("dosis");
-const responsable = document.getElementById("responsable");
-const estado = document.getElementById("estado");
-const buscador = document.querySelector(".busqueda");
+// Mock Data de Registros
+let healthRecords = [
+    { id: 1, fecha: '2026-04-20', idCerdo: '2024-001', diagnostico: 'Control rutinario', tratamiento: 'Vacuna Parvovirus', responsable: 'Juan Pérez' },
+    { id: 2, fecha: '2026-04-22', idCerdo: '2024-042', diagnostico: 'Diarrea leve', tratamiento: 'Rehidratación y antibiótico', responsable: 'María Gómez' }
+];
 
-// = DATOS =
-let vacunas = JSON.parse(localStorage.getItem("vacunas")) || [];
-let editIndex = null;
+// Mock Data de Medicamentos
+const topMedicines = [
+    { name: "Vacuna Parvovirus", dose: "2ml IM" },
+    { name: "Rehidratación y antibiótico", dose: "5ml SC / 2ml IM" },
+    { name: "Ivermectina 1%", dose: "1ml/33kg SC" },
+    { name: "Hierro Dextrano", dose: "2ml IM (Día 3)" },
+    { name: "Amoxicilina L.A.", dose: "1ml/10kg IM" }
+];
 
-function render(lista = vacunas){
-    contenedor.innerHTML = "";
-    lista.forEach((v,i)=>{
-        if(v.eliminada) return;
+// DOM Elements
+const healthTable = document.getElementById('healthTable');
+const healthModal = document.getElementById('healthModal');
+const healthForm = document.getElementById('healthForm');
 
-        contenedor.innerHTML += `
-        <section class="cuadro1">
-            <p><b>${v.nombre}</b></p>
-            <p>Porcino: ${v.porcino}</p>
-            <p>Aplicación: ${v.fecha}</p>
-            <p>Próxima dosis: ${v.dosis} cm</p>
-            <p>Responsable: ${v.responsable}</p>
-            <p class="${v.estado === "Completada" ? "final" : "final2"}">
-                ${v.estado}
-            </p>
-            <button onclick="editar(${i})"></button>
-            <button onclick="eliminar(${i})"></button>
-        </section>`;
+const btnOpenModal = document.getElementById('btnOpenModal');
+const btnCancelModal = document.getElementById('btnCancelModal');
+
+const formIdCerdo = document.getElementById('formIdCerdo');
+const formFecha = document.getElementById('formFecha');
+const formDiagnostico = document.getElementById('formDiagnostico');
+const formTratamiento = document.getElementById('formTratamiento');
+const formDosis = document.getElementById('formDosis');
+const formResponsable = document.getElementById('formResponsable');
+
+function renderTable() {
+    healthTable.innerHTML = '';
+    healthRecords.forEach(record => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td class="px-6 py-4 whitespace-nowrap text-slate-500 font-medium">${record.fecha}</td>
+            <td class="px-6 py-4 whitespace-nowrap font-black text-slate-800">${record.idCerdo}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-slate-600 font-medium">${record.diagnostico}</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-lg font-bold text-sm">
+                    ${record.tratamiento}
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-slate-600 font-medium">${record.responsable}</td>
+        `;
+        healthTable.appendChild(tr);
     });
 }
-render();
 
-function abrirFormulario(){
-    modal.classList.remove("oculto");
+function initMedicines() {
+    topMedicines.forEach(med => {
+        const option = document.createElement('option');
+        option.value = med.name;
+        option.textContent = med.name;
+        formTratamiento.appendChild(option);
+    });
 }
-function cerrarFormulario(){
-    modal.classList.add("oculto");
-    limpiarFormulario();
-}
 
-function guardar(){
-    if(!nombre.value || !porcino.value || !dosis.value){
-        alert("Completa los campos obligatorios");
-        return;
-    }
-
-    const vacuna = {
-        nombre: nombre.value,
-        porcino: porcino.value,
-        fecha: fecha.value,
-        dosis: Number(dosis.value),
-        responsable: responsable.value,
-        estado: estado.value,
-        eliminada:false
-    };
-
-    if(editIndex !== null){
-        vacunas[editIndex] = vacuna;
-        editIndex = null;
+// Event Listeners
+formTratamiento.addEventListener('change', (e) => {
+    const selectedName = e.target.value;
+    const selectedMedicine = topMedicines.find(m => m.name === selectedName);
+    if (selectedMedicine) {
+        formDosis.value = selectedMedicine.dose;
     } else {
-        vacunas.push(vacuna);
+        formDosis.value = '';
     }
-
-    localStorage.setItem("vacunas", JSON.stringify(vacunas));
-    cerrarFormulario();
-    render();
-}
-
-function editar(i){
-    const v = vacunas[i];
-    nombre.value = v.nombre;
-    porcino.value = v.porcino;
-    fecha.value = v.fecha;
-    dosis.value = v.dosis;
-    responsable.value = v.responsable;
-    estado.value = v.estado;
-    editIndex = i;
-    abrirFormulario();
-}
-
-function eliminar(i){
-    vacunas[i].eliminada = true;
-    localStorage.setItem("vacunas", JSON.stringify(vacunas));
-    render();
-}
-
-function mostrarTodas(){ render(vacunas); }
-function mostrarCompletadas(){
-    render(vacunas.filter(v=>v.estado==="Completada" && !v.eliminada));
-}
-function mostrarPendientes(){
-    render(vacunas.filter(v=>v.estado==="Pendiente" && !v.eliminada));
-}
-
-// = BUSCADOR =
-buscador.addEventListener("input", e=>{
-    const t = e.target.value.toLowerCase();
-    render(vacunas.filter(v=>
-        !v.eliminada &&
-        (v.nombre.toLowerCase().includes(t) ||
-         v.porcino.toLowerCase().includes(t))
-    ));
 });
 
-// = Papelera =
-function verPapelera(){
-    contenedor.innerHTML = "";
-
-    const eliminadas = vacunas.filter(v => v.eliminada);
-
-    if(eliminadas.length === 0){
-        contenedor.innerHTML = "<p>Papelera vacía</p>";
-        return;
-    }
-
-    eliminadas.forEach((v, i) => {
-        contenedor.innerHTML += `
-            <section class="cuadro1">
-                <p><b> ${v.nombre}</b></p>
-                <p>Porcino: ${v.porcino}</p>
-                <p>Dosis: ${v.dosis} cc</p>
-
-                <button onclick="recuperarVacuna(${i})">♻️ Recuperar</button>
-            </section>
-        `;
-    });
-}
-function recuperarVacuna(index){
-    // Buscar las eliminadas
-    const eliminadas = vacunas.filter(v => v.eliminada);
-
-    // Recuperamos la correcta
-    eliminadas[index].eliminada = false;
-
-    // Guardamos cambios
-    localStorage.setItem("vacunas", JSON.stringify(vacunas));
-
-    // Volvemos a la vista normal
-    render();
-}
-function vistaCalendario() {
-    contenedor.innerHTML = "";
-
-    const porFecha = {};
-
-    vacunas.forEach(v => {
-        if (v.eliminada) return;
-        if (!v.fecha) return;
-
-        if (!porFecha[v.fecha]) {
-            porFecha[v.fecha] = [];
-        }
-        porFecha[v.fecha].push(v);
-    });
-
-    if (Object.keys(porFecha).length === 0) {
-        contenedor.innerHTML = "<p>No hay vacunas con fecha asignada</p>";
-        return;
-    }
-
-    for (const fecha in porFecha) {
-        contenedor.innerHTML += `
-            <section class="cuadro1">
-                <p class="titulos"> ${fecha}</p>
-                ${porFecha[fecha].map(v => `
-                    <p class="descripciones">
-                         ${v.porcino} –  ${v.nombre} (${v.dosis} cc)
-                    </p>
-                `).join("")}
-            </section>
-        `;
-    }
+function openModal() {
+    healthModal.classList.add('active');
+    formFecha.value = new Date().toISOString().split('T')[0];
 }
 
-function salir(){
-    alert("Sesión finalizada");
+function closeModal() {
+    healthModal.classList.remove('active');
+    healthForm.reset();
+    formDosis.value = '';
 }
 
-function limpiarFormulario(){
-    nombre.value = "";
-    porcino.value = "";
-    fecha.value = "";
-    dosis.value = "";
-    responsable.value = "";
-    estado.value = "Completada";
-}
+btnOpenModal.addEventListener('click', openModal);
+btnCancelModal.addEventListener('click', closeModal);
+
+healthForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const newRecord = {
+        id: Date.now(),
+        fecha: formFecha.value,
+        idCerdo: formIdCerdo.value,
+        diagnostico: formDiagnostico.value,
+        tratamiento: formTratamiento.value,
+        responsable: formResponsable.value
+    };
+
+    healthRecords.push(newRecord);
+    renderTable();
+    closeModal();
+});
+
+// Inicialización
+initMedicines();
+renderTable();

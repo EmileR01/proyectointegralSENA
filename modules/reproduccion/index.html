@@ -1,101 +1,178 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Reproducción</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Reproducción - SIGEP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sena-green': '#39A900',
+                        'sena-blue': '#00324D',
+                        'sena-yellow': '#FFC000',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .modal {
+            display: none;
+        }
+        .modal.active {
+            display: flex;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-100 text-slate-900 font-sans min-h-screen">
+    <div class="mx-auto flex min-h-screen w-full flex-col xl:flex-row">
+        
+        <!-- Sidebar -->
+        <aside class="w-full bg-slate-950 px-6 py-8 text-white xl:min-h-screen xl:w-80 xl:px-8">
+            <div class="flex items-center gap-3">
+                <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA" class="h-10 w-auto" />
+                <div>
+                    <p class="text-2xl font-black tracking-tight text-white">
+                        Porci<span class="text-sena-green font-black">Tech</span>
+                    </p>
+                </div>
+            </div>
 
-<!-- MENÚ LATERAL -->
-<aside class="sidebar">
-  <div class="logo">
-    <div class="logo-circulo">
-      <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA">
+            <nav class="mt-8 grid gap-2">
+                <a href="../dashboard/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Dashboard</a>
+                <a href="../alimentacion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Alimentación</a>
+                <a href="../registro-peso/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Registro de Peso</a>
+                <a href="../reproduccion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-emerald-400 text-slate-950">Reproducción</a>
+                <a href="../vacunacion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Salud y Vacunación</a>
+                <a href="../reportes/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Alertas y Reportes</a>
+                <a href="../configuracion-usuarios/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Configuración</a>
+            </nav>
+
+            <a href="../../index.html" class="mt-8 block rounded-xl px-4 py-3 text-center text-sm font-bold text-slate-300 border border-slate-700 transition hover:bg-white/5">
+                Volver a la landing
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <section class="flex-1 px-6 py-8 lg:px-10 overflow-y-auto">
+            
+            <div class="space-y-8 max-w-[1600px] mx-auto pb-10">
+                <!-- Cabecera -->
+                <header class="flex flex-col gap-6 p-8 rounded-[2rem] bg-white shadow-sm lg:flex-row lg:items-center lg:justify-between border-t-4 border-t-fuchsia-500">
+                    <div>
+                        <h2 class="text-3xl font-black text-slate-900 flex items-center gap-3">
+                            <div class="p-2 bg-fuchsia-100 rounded-xl">
+                                <i data-lucide="heart" class="text-fuchsia-500 w-6 h-6"></i>
+                            </div>
+                            Control de Reproducción
+                        </h2>
+                        <p class="text-slate-500 mt-2 font-medium">Gestión del ciclo reproductivo, servicios y partos.</p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="flex items-center justify-center gap-2 px-4 py-2.5 font-bold rounded-xl bg-pink-500 hover:bg-pink-600 text-white shadow-md shadow-pink-500/30 transition border-none">
+                            <i data-lucide="baby" class="w-5 h-5"></i>
+                            Registrar Parto
+                        </button>
+                        <button id="btnOpenModal" class="flex items-center justify-center gap-2 px-4 py-2.5 font-bold rounded-xl bg-fuchsia-500 hover:bg-fuchsia-600 text-white shadow-md shadow-fuchsia-500/30 transition border-none">
+                            <i data-lucide="heart" class="w-5 h-5"></i>
+                            Registrar Servicio
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Resumen de Ciclo -->
+                <section>
+                    <h3 class="text-xl font-bold mb-6 text-slate-800">Resumen de Ciclo</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="summaryStatsGrid">
+                        <!-- Renderizado desde script.js -->
+                    </div>
+                </section>
+
+                <!-- Tabla de Eventos Reproductivos -->
+                <section>
+                    <h3 class="text-xl font-bold mb-6 text-slate-800">Eventos Reproductivos Recientes</h3>
+                    <div class="bg-white rounded-[2rem] shadow-sm overflow-hidden p-2 border border-slate-100">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead class="bg-slate-50 border-b border-slate-200">
+                                    <tr>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">ID Hembra</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Fecha de Servicio</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Tipo</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Fecha Est. de Parto</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="reproductionTable" class="divide-y divide-slate-100">
+                                    <!-- Renderizado desde script.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
     </div>
-    <h2>Sistema Integral de<br>Gestión Porcina</h2>
-  </div>
 
-  <nav>
-    <a href="../dashboard/index.html">Inicio</a>
-    <a href="../alimentacion/index.html">Alimentación</a>
-    <a href="../registro-peso/index.html">Registro de Peso</a>
-    <a class="activo" href="../reproduccion/index.html">Reproducción</a>
-    <a href="../reportes/index.html">Inventario y Ventas</a>
-    <a href="../vacunacion/index.html">Vacunación</a>
-    <a href="../reportes/index.html">Alertas y Reportes</a>
-    <a href="../configuracion-usuarios/index.html">Configuración Usuarios</a>
-  </nav>
-  <button class="btn-sidebar"> Nuevo evento </button>
-</aside>
+    <!-- Modal Registrar Servicio -->
+    <div id="serviceModal" class="modal fixed inset-0 z-[100] items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+        <form id="serviceForm" class="w-full max-w-md p-8 rounded-[2.5rem] bg-white shadow-2xl relative border border-slate-100">
+            <button type="button" id="btnCloseModal" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 font-bold bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center transition-colors">
+                ✕
+            </button>
+            <h2 class="text-2xl font-black mb-6 text-slate-900 flex items-center gap-2">
+                <i data-lucide="heart" class="text-fuchsia-500 w-6 h-6"></i>
+                Nuevo Servicio
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">ID Hembra</label>
+                    <input type="text" id="formHembraId" placeholder="Ej: H-045" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-fuchsia-500 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
+                </div>
 
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Edad de la Hembra (Días) - Solo Primerizas</label>
+                    <input type="number" id="formEdadDias" placeholder="Ej: 220" class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-fuchsia-500 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
+                </div>
+                
+                <div id="alertaMadurez" class="hidden p-3 bg-rose-50 border border-rose-200 text-rose-600 text-sm font-bold rounded-xl items-start gap-2">
+                    <i data-lucide="alert-triangle" class="w-5 h-5 shrink-0"></i>
+                    <span></span>
+                </div>
 
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Fecha de Servicio</label>
+                    <input type="date" id="formFechaServicio" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-fuchsia-500 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
+                </div>
 
-<!-- CONTENIDO PRINCIPAL -->
-<main class="contenido">
-  <h1>Reproducción </h1>
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Fecha Est. de Parto (+114 días)</label>
+                    <input type="date" id="formEstimadoParto" placeholder="Calculada automáticamente..." readonly class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50 opacity-80 cursor-not-allowed outline-none text-slate-800 font-medium">
+                </div>
+            </div>
 
-  <!-- PESTAÑA -->
-   <div class="tbs">
-    <button class="tab activo">Celo</button>
-    <button class="tab">Inseminación</button>
-    <button class="tab">Gestión</button>
-    <button class="tab">Partos</button>
+            <div class="flex gap-4 mt-8">
+                <button type="button" id="btnCancelModal" class="flex-1 py-2.5 font-bold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+                    Cancelar
+                </button>
+                <button type="submit" class="flex-1 py-2.5 font-black bg-fuchsia-500 hover:bg-fuchsia-600 text-white rounded-xl shadow-md shadow-fuchsia-500/30 transition border-none">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
 
-   </div>
-   <h2>Historial Reproductivo</h2>
-
-   <!-- BUSCADOR -->
-  <div class="buscador">
-    <input type="text" placeholder="Buscar animal...">
-  </div>
-
-  <!-- TABLA -->
-  <table class="tabla">
-    <thead>
-      <tr>
-        <th>ID ANIMAL</th>
-        <th>FECHA CELO</th>
-        <th>ESTADO</th>
-        <th>ACCIONES</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>67890</td>
-        <td>2025-11-20</td>
-        <td><span class="estado activo">Activo</span></td>
-        <td><a href="../reportes/index.html">Ver Detalles</a></td>
-      </tr>
-
-      <tr>
-        <td>67890</td>
-        <td>2024-07-20</td>
-        <td><span class="estado inactivo">Inactivo</span></td>
-        <td><a href="../reportes/index.html">Ver Detalles</a></td>
-      </tr>
-
-      <tr>
-        <td>11223</td>
-        <td>2025-12-16</td>
-        <td><span class="estado activo">Activo</span></td>
-        <td><a href="../reportes/index.html">Ver Detalles</a></td>
-      </tr>
-    </tbody>
-  </table>
-
-</main>
-
-<script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

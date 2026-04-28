@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - SIGEP</title>
+    <title>Recuperar Contraseña - SIGEP</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -42,12 +42,16 @@
                 
                 <div class="max-w-xl">
                     <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">
-                        Acceso seguro
+                        Recuperación
                     </p>
                     <h1 class="mt-4 text-5xl font-black tracking-tight">
-                        Bienvenido al Sistema Integral de Gestión Porcina
+                        ¿Problemas para acceder a tu cuenta?
                     </h1>
+                    <p class="mt-6 text-lg leading-8 text-slate-300">
+                        Ingresa tu dirección de correo electrónico y te enviaremos las instrucciones paso a paso para que puedas configurar una nueva contraseña y continuar trabajando.
+                    </p>
                 </div>
+                <div class="flex-1"></div>
             </div>
         </section>
 
@@ -58,10 +62,10 @@
                 <div class="mb-8 flex items-start justify-between">
                     <div>
                         <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700">
-                            Iniciar sesión
+                            Recuperar acceso
                         </p>
                         <h2 class="mt-3 text-3xl font-black tracking-tight text-slate-950">
-                            Ingresa a tu cuenta
+                            Resetea tu contraseña
                         </h2>
                     </div>
                     <!-- BrandMark Compact (Solo Móvil) -->
@@ -70,35 +74,21 @@
                     </div>
                 </div>
 
-                <form id="loginForm" class="space-y-5">
+                <form id="forgotPasswordForm" class="space-y-6">
                     <div class="space-y-1">
-                        <label class="block text-sm font-semibold text-slate-700">Usuario</label>
-                        <input type="email" id="email" value="operador@porcitech.co" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
+                        <label class="block text-sm font-semibold text-slate-700">Usuario o correo electrónico</label>
+                        <input type="email" id="email" required placeholder="ejemplo@correo.com" class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
                     </div>
 
-                    <div class="space-y-1">
-                        <label class="block text-sm font-semibold text-slate-700">Contraseña</label>
-                        <input type="password" id="password" value="Sena2026*" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
-                    </div>
-
-                    <div class="flex items-center justify-between gap-4 text-sm">
-                        <a href="../contraseña-olvidada/index.html" class="font-medium text-emerald-700 transition hover:text-emerald-800">
-                            ¿Olvidaste tu contraseña?
-                        </a>
-                        <span class="rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-500">
-                            Demo
-                        </span>
-                    </div>
-
-                    <button type="submit" class="w-full py-2.5 font-black bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow-md shadow-emerald-600/30 transition border-none mt-4">
-                        Ingresar al dashboard
+                    <button type="submit" class="w-full py-2.5 font-black bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow-md shadow-emerald-600/30 transition border-none">
+                        Enviar instrucciones
                     </button>
                 </form>
 
                 <div class="mt-8 border-t border-slate-200 pt-6 text-sm text-slate-600">
-                    <p>Vista basada en el módulo de inicio de sesión del repositorio original.</p>
-                    <a href="../../index.html" class="mt-3 inline-flex font-semibold text-emerald-700 hover:text-emerald-800">
-                        Volver a la landing
+                    <p>¿Recordaste tu contraseña?</p>
+                    <a href="../inicio_sesion/index.html" class="mt-3 inline-flex font-semibold text-emerald-700 hover:text-emerald-800">
+                        Volver a iniciar sesión
                     </a>
                 </div>
             </div>

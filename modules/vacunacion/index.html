@@ -1,84 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>Vacunación Porcina</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud y Vacunación - SIGEP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sena-green': '#39A900',
+                        'sena-blue': '#00324D',
+                        'sena-yellow': '#FFC000',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .modal {
+            display: none;
+        }
+        .modal.active {
+            display: flex;
+        }
+    </style>
 </head>
-
-<body>
-
-    <aside class="sidebar">
-                <div class="logo">
-                    <div class="logo-circulo">
-                        <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA">
-                    </div>
-                    <h2>Sistema Integral de<br>Gestión Porcina</h2>
+<body class="bg-slate-100 text-slate-900 font-sans min-h-screen">
+    <div class="mx-auto flex min-h-screen w-full flex-col xl:flex-row">
+        
+        <!-- Sidebar -->
+        <aside class="w-full bg-slate-950 px-6 py-8 text-white xl:min-h-screen xl:w-80 xl:px-8">
+            <div class="flex items-center gap-3">
+                <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA" class="h-10 w-auto" />
+                <div>
+                    <p class="text-2xl font-black tracking-tight text-white">
+                        Porci<span class="text-sena-green font-black">Tech</span>
+                    </p>
                 </div>
+            </div>
 
-                <nav>
-                    <a href="../dashboard/index.html">Inicio</a>
-                    <a href="../alimentacion/index.html">Alimentación</a>
-                    <a href="../registro-peso/index.html">Registro de Peso</a>
-                    <a href="../reproduccion/index.html">Reproducción</a>
-                    <a href="../reportes/index.html">Inventario y Ventas</a>
-                    <a class="activo" href="../vacunacion/index.html">Vacunación</a>
-                    <a href="../reportes/index.html">Alertas y Reportes</a>
-                    <a href="../configuracion-usuarios/index.html">Configuración Usuarios</a>
-                </nav>
+            <nav class="mt-8 grid gap-2">
+                <a href="../dashboard/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Dashboard</a>
+                <a href="../alimentacion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Alimentación</a>
+                <a href="../registro-peso/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Registro de Peso</a>
+                <a href="../reproduccion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Reproducción</a>
+                <a href="../vacunacion/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-emerald-400 text-slate-950">Salud y Vacunación</a>
+                <a href="../reportes/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Alertas y Reportes</a>
+                <a href="../configuracion-usuarios/index.html" class="rounded-2xl px-4 py-3 text-left text-sm font-semibold transition bg-white/0 text-slate-300 hover:bg-white/5 hover:text-white">Configuración</a>
+            </nav>
+
+            <a href="../../index.html" class="mt-8 block rounded-xl px-4 py-3 text-center text-sm font-bold text-slate-300 border border-slate-700 transition hover:bg-white/5">
+                Volver a la landing
+            </a>
         </aside>
 
-    <section class="conjunto">
-        <header>
-            <img src="../../assets/img/icons/logo-sena.png" alt="Logo SENA">
-            <p class="titulo1">Vacunación Porcina</p>
-            <input type="text" class="busqueda" placeholder="🔍 Buscar porcino o vacuna">
-        </header>
+        <!-- Main Content -->
+        <section class="flex-1 px-6 py-8 lg:px-10 overflow-y-auto">
+            
+            <div class="space-y-10 max-w-[1600px] mx-auto pb-10">
+                <!-- Cabecera -->
+                <div class="flex flex-col gap-4 sm:flex-row sm:justify-between items-start sm:items-center bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 border-t-4 border-t-emerald-400">
+                    <h2 class="text-3xl font-black italic text-slate-900 flex items-center gap-3">
+                        <i data-lucide="shield-plus" class="text-emerald-500 w-8 h-8"></i>
+                        Salud y Vacunación
+                    </h2>
+                    <button id="btnOpenModal" class="flex items-center gap-2 px-5 py-2.5 bg-emerald-400 hover:bg-emerald-500 text-slate-950 font-black rounded-xl shadow-md shadow-emerald-400/30 transition-colors border-none">
+                        <i data-lucide="plus" class="w-5 h-5"></i>
+                        Nuevo Registro
+                    </button>
+                </div>
 
-        <section class="barras">
-            <button class="p1" onclick="render()">Vista Cuadrícula</button>
-            <button class="p1" onclick="vistaCalendario()">📅 Calendario</button>
-            <button class="p1" onclick="verPapelera()">🗑️ Papelera</button>
-        </section>
+                <!-- Tabla de Registros de Salud -->
+                <div class="bg-white rounded-[2rem] shadow-sm overflow-hidden p-2 border border-slate-100">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead class="bg-slate-50 border-b border-slate-200">
+                                <tr>
+                                    <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Fecha</th>
+                                    <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">ID Cerdo</th>
+                                    <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Diagnóstico</th>
+                                    <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Tratamiento</th>
+                                    <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Responsable</th>
+                                </tr>
+                            </thead>
+                            <tbody id="healthTable" class="divide-y divide-slate-100">
+                                <!-- Generado desde script.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-        <main id="contenedorVacunas"></main>
-
-        <div id="modal" class="modal oculto">
-            <div class="modal-contenido">
-                <h3>Nueva Vacuna</h3>
-
-                <input id="nombre" placeholder="Nombre vacuna">
-                <input id="porcino" placeholder="ID Porcino">
-                <input id="fecha" type="date">
-                <input id="dosis" type="number" placeholder="Dosis (cc)">
-                <input id="responsable" placeholder="Responsable">
-
-                <select id="estado">
-                    <option value="Completada">Completada</option>
-                    <option value="Pendiente">Pendiente</option>
-                </select>
-
-                <button onclick="guardar()">💾 Guardar</button>
-                <button onclick="cerrarFormulario()">❌ Cancelar</button>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <footer>
-            <section class="acciones">
-                <button class="filtros" onclick="mostrarTodas()">Todos</button>
-                <button class="filtros" onclick="mostrarCompletadas()">Completadas ✅</button>
-                <button class="filtros" onclick="mostrarPendientes()">Pendientes ⌛</button>
-            </section>
+    <!-- Modal Registrar Tratamiento -->
+    <div id="healthModal" class="modal fixed inset-0 z-[100] items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+        <form id="healthForm" class="w-full max-w-md p-8 rounded-[2.5rem] bg-white shadow-2xl relative border border-slate-100">
+            <h2 class="text-2xl font-black mb-6 text-slate-900 flex items-center gap-2">
+                <i data-lucide="stethoscope" class="text-emerald-500 w-6 h-6"></i>
+                Registrar Tratamiento
+            </h2>
 
-            <section class="acciones2">
-                <button class="accion1" onclick="abrirFormulario()">➕ Agregar Vacuna</button>
-                <button class="accion1" onclick="salir()">Salir</button>
-            </section>
-        </footer>
-    </section>
+            <div class="space-y-4 max-h-[60vh] overflow-y-auto px-2 -mx-2 custom-scrollbar">
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">ID del Animal</label>
+                    <input type="text" id="formIdCerdo" required placeholder="Ej: 2024-001" class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-400 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
+                </div>
 
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Fecha del Tratamiento</label>
+                    <input type="date" id="formFecha" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-400 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
+                </div>
+
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Tipo de diagnóstico</label>
+                    <textarea id="formDiagnostico" required placeholder="Descripción del diagnóstico..." class="w-full px-4 py-3 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-emerald-100 focus:border-emerald-400 outline-none bg-slate-50 text-slate-950 font-medium min-h-[100px] resize-none"></textarea>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Medicamento aplicado</label>
+                    <div class="relative">
+                        <select id="formTratamiento" required class="w-full p-3 rounded-2xl border border-slate-200 bg-slate-50 outline-none font-medium text-slate-950 focus:ring-4 focus:ring-emerald-100 focus:border-emerald-400 appearance-none">
+                            <option value="" disabled selected>Seleccione un medicamento...</option>
+                            <!-- Opciones generadas en script.js -->
+                        </select>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-xs">▼</div>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Dosis sugerida</label>
+                    <input type="text" id="formDosis" required readonly placeholder="Autocompletado..." class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-slate-50 opacity-70 cursor-not-allowed text-slate-800 font-medium outline-none">
+                </div>
+
+                <div class="space-y-1">
+                    <label class="block text-sm font-semibold text-slate-700">Veterinario responsable</label>
+                    <input type="text" id="formResponsable" required placeholder="Nombre del veterinario" class="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-400 focus:border-transparent outline-none bg-slate-50 text-slate-800 font-medium">
+                </div>
+            </div>
+
+            <div class="flex gap-4 mt-8">
+                <button type="button" id="btnCancelModal" class="flex-1 py-2.5 font-bold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition border-none">
+                    Cancelar
+                </button>
+                <button type="submit" class="flex-1 py-2.5 font-black bg-emerald-400 hover:bg-emerald-500 text-slate-950 rounded-xl shadow-lg shadow-emerald-400/30 transition border-none">
+                    Guardar Registro
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
-
 </html>
